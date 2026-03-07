@@ -87,11 +87,18 @@ export default function Home() {
           
           {/* Airport badges */}
           <div className="absolute bottom-0 left-0 right-0 bg-black/20 backdrop-blur-sm border-t border-white/5 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-4 flex-wrap justify-center md:justify-start">
-              <span className="text-[10px] uppercase tracking-wider text-white/30">Airports:</span>
-              {AIRPORTS.map(a => (
-                <span key={a} className="text-xs text-white/50">{a}</span>
-              ))}
+            <div className="py-3">
+              <div className="flex airport-scroll" style={{ width: 'max-content', animation: 'airportScroll 15s linear infinite' }}>
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="flex items-center gap-6 px-4">
+                    {AIRPORTS.map(a => (
+                      <span key={`${i}-${a}`} className="text-xs text-white/50 whitespace-nowrap flex items-center gap-2">
+                        <span style={{ color: '#c9a96e' }}>✈</span> {a}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
