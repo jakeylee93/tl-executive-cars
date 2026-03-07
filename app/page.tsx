@@ -29,16 +29,15 @@ const VEHICLES = [
 const AIRPORTS = ['Heathrow', 'Gatwick', 'London City', 'Luton', 'Stansted', 'Southend']
 
 const JOURNEYS = [
-  '✈ Airport Transfers',
-  '🎭 Theatre Trips',
-  '💼 Business Meetings',
-  '🥂 Special Occasions',
-  '💒 Weddings',
-  '🏇 Race Days',
-  '⚽ Sporting Events',
-  '🚢 Cruise Terminals',
-  '🎓 School Runs',
-  '🍽 Restaurant Evenings',
+  { label: 'Airport Transfers', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg> },
+  { label: 'Theatre Trips', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M2 4h20v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4z"/><path d="M2 4l10 8 10-8"/><circle cx="8" cy="14" r="1.5"/><circle cx="16" cy="14" r="1.5"/></svg> },
+  { label: 'Business Meetings', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M20 7H4a2 2 0 0 0-2 2v10h20V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/></svg> },
+  { label: 'Special Occasions', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M8 22h8l-4-10L8 22z"/><path d="M12 12V2"/><path d="M7 7c3-3 8 0 5 5"/><path d="M17 7c-3-3-8 0-5 5"/></svg> },
+  { label: 'Weddings', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> },
+  { label: 'Race Days', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> },
+  { label: 'Sporting Events', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg> },
+  { label: 'Cruise Terminals', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M2 20l2-2h16l2 2"/><path d="M4 18V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M12 6V3"/><path d="M8 6V4"/><path d="M16 6V4"/><line x1="4" y1="12" x2="20" y2="12"/></svg> },
+  { label: 'Restaurant Evenings', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> },
 ]
 
 const AREAS = ['Theydon Bois', 'Loughton', 'Epping', 'Abridge', 'Ongar', 'Buckhurst Hill', 'Chigwell', 'Woodford Green']
@@ -114,7 +113,10 @@ export default function Home() {
                 {[...Array(3)].map((_, i) => (
                   <div key={i} className="flex items-center gap-8 px-4">
                     {JOURNEYS.map(j => (
-                      <span key={`${i}-${j}`} className="text-xs text-white/50 whitespace-nowrap">{j}</span>
+                      <span key={`${i}-${j.label}`} className="text-xs text-white/50 whitespace-nowrap flex items-center gap-2">
+                        <span className="text-white/30">{j.icon}</span>
+                        {j.label}
+                      </span>
                     ))}
                   </div>
                 ))}
