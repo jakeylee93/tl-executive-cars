@@ -298,30 +298,29 @@ export default function Home() {
         </div>
 
         <div className="relative">
-          <div className="flex items-center gap-10 md:gap-14 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 35s linear infinite' }}>
+          <div className="flex items-center gap-12 md:gap-16 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 35s linear infinite' }}>
             {[...Array(2)].map((_, setIdx) => (
-              <div key={setIdx} className="flex items-center gap-10 md:gap-14 px-6">
+              <div key={setIdx} className="flex items-center gap-12 md:gap-16 px-8">
                 {[
-                  { name: 'LONDON SPEAKER BUREAU', style: 'tracking-[0.15em] text-xs font-semibold' },
-                  { name: 'SPEAKERS CORNER', style: 'tracking-[0.2em] text-xs font-semibold' },
-                  { name: 'Jamil Qureshi', style: 'text-xl italic', serif: true },
-                  { name: 'THE JOCKEY CLUB', style: 'tracking-[0.2em] text-xs font-bold' },
-                  { name: 'ENDEMOLSHINE GROUP', style: 'tracking-[0.12em] text-xs font-semibold' },
-                  { name: 'CHAPMAN FREEBORN', style: 'tracking-[0.18em] text-xs font-semibold' },
-                  { name: 'JLA', style: 'tracking-[0.35em] text-xl font-bold' },
-                  { name: 'GB HELICOPTERS', style: 'tracking-[0.2em] text-xs font-semibold' },
-                  { name: 'FRESH PARTNERS', style: 'tracking-[0.15em] text-xs font-semibold' },
+                  { name: 'London Speaker Bureau', src: '/clients/lsb.png' },
+                  { name: 'Speakers Corner', src: '/clients/speakerscorner.jpg' },
+                  { name: 'Jamil Qureshi', src: '/clients/jamilqureshi.png' },
+                  { name: 'The Jockey Club', src: '/clients/jockeyclub.svg' },
+                  { name: 'Banijay (EndemolShine)', src: '/clients/banijay.svg' },
+                  { name: 'Chapman Freeborn', src: '/clients/chapmanfreeborn.png' },
+                  { name: 'JLA', src: '/clients/jla.webp' },
+                  { name: 'GB Helicopters', src: '/clients/gbhelicopters.svg' },
+                  { name: 'Fresh Partners', text: 'FRESH PARTNERS' },
                 ].map(c => (
                   <div 
                     key={`${setIdx}-${c.name}`} 
-                    className="flex-shrink-0 flex items-center justify-center py-3 px-5 rounded-lg border border-black/5 bg-white"
+                    className="flex-shrink-0 flex items-center justify-center h-12 opacity-60 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
                   >
-                    <span 
-                      className={`whitespace-nowrap text-black/50 ${c.style}`}
-                      style={{ fontFamily: c.serif ? "'Cormorant Garamond', serif" : "'Inter', sans-serif" }}
-                    >
-                      {c.name}
-                    </span>
+                    {c.text ? (
+                      <span className="text-xs font-semibold tracking-[0.15em] text-black/60 whitespace-nowrap">{c.text}</span>
+                    ) : (
+                      <img src={c.src} alt={c.name} className="h-10 md:h-12 w-auto max-w-[160px] object-contain" loading="lazy" />
+                    )}
                   </div>
                 ))}
               </div>
