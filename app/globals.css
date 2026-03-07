@@ -25,3 +25,12 @@ html { scroll-behavior: smooth; }
 .fleet-scroll:hover {
   animation-play-state: paused;
 }
+
+@keyframes clientScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.client-scroll:hover {
+  animation-play-state: paused;
+}

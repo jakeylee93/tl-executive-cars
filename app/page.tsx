@@ -294,6 +294,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Clients — Scrolling logos */}
+      <section className="py-16 md:py-20 border-t border-black/5 overflow-hidden">
+        <div className="px-6 mb-10">
+          <div className="max-w-5xl mx-auto text-center">
+            <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-3">Trusted By</p>
+            <h3 
+              className="text-3xl md:text-4xl text-black"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              Some of Our Clients
+            </h3>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="flex items-center gap-16 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 30s linear infinite' }}>
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex items-center gap-16 px-8">
+                {[
+                  { name: 'London Speaker Bureau', logo: 'https://logo.clearbit.com/londonspeakerbureau.com' },
+                  { name: 'Speakers Corner', logo: 'https://logo.clearbit.com/speakerscorner.co.uk' },
+                  { name: 'Jamil Qureshi', text: true },
+                  { name: 'The Jockey Club', logo: 'https://logo.clearbit.com/thejockeyclub.co.uk' },
+                  { name: 'EndemolShine Group', logo: 'https://logo.clearbit.com/endemolshine.com' },
+                  { name: 'Chapman Freeborn', logo: 'https://logo.clearbit.com/chapmanfreeborn.aero' },
+                  { name: 'JLA', logo: 'https://logo.clearbit.com/jla.co.uk' },
+                  { name: 'GB Helicopters', logo: 'https://logo.clearbit.com/gbhelicopters.com' },
+                  { name: 'Fresh Partners', logo: 'https://logo.clearbit.com/freshpartners.com' },
+                ].map(c => (
+                  <div key={`${setIdx}-${c.name}`} className="flex-shrink-0 flex items-center justify-center h-12 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    {'text' in c ? (
+                      <span className="text-lg italic text-black/70 whitespace-nowrap" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{c.name}</span>
+                    ) : (
+                      <img src={c.logo} alt={c.name} className="h-10 md:h-12 w-auto object-contain" loading="lazy" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials — Scrolling */}
       <section id="testimonials" className="py-20 md:py-28 border-t border-black/5 overflow-hidden">
         <div className="px-6 mb-12">
