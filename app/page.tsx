@@ -177,10 +177,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="py-20 md:py-28 px-6 border-t border-black/5">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+      {/* Testimonials — Scrolling */}
+      <section id="testimonials" className="py-20 md:py-28 border-t border-black/5 overflow-hidden">
+        <div className="px-6 mb-12">
+          <div className="max-w-5xl mx-auto text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-3">What Our Clients Say</p>
             <h3 
               className="text-3xl md:text-4xl text-black"
@@ -189,17 +189,23 @@ export default function Home() {
               Trusted Since 2008
             </h3>
           </div>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {TESTIMONIALS.map(t => (
-              <div key={t.name} className="p-8 rounded-2xl border border-black/5 bg-gradient-to-b from-gray-50/50 to-white">
-                <p className="text-sm text-black/60 leading-relaxed mb-6 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <p className="text-sm font-semibold text-black">{t.name}</p>
-                  <p className="text-xs text-black/40">{t.role}</p>
-                </div>
+        <div className="relative">
+          <div className="flex gap-4 md:gap-6 testimonial-scroll" style={{ width: 'max-content', animation: 'testimonialScroll 30s linear infinite' }}>
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex gap-4 md:gap-6 pl-4 md:pl-6">
+                {TESTIMONIALS.map(t => (
+                  <div key={`${setIdx}-${t.name}`} className="w-[320px] md:w-[380px] flex-shrink-0 p-6 md:p-8 rounded-2xl border border-black/5 bg-gradient-to-b from-gray-50/50 to-white">
+                    <p className="text-sm text-black/60 leading-relaxed mb-6 italic">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                    <div>
+                      <p className="text-sm font-semibold text-black">{t.name}</p>
+                      <p className="text-xs text-black/40">{t.role}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>

@@ -7,3 +7,12 @@ html { scroll-behavior: smooth; }
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.33%); }
 }
+
+@keyframes testimonialScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testimonial-scroll:hover {
+  animation-play-state: paused;
+}
