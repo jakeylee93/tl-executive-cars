@@ -28,6 +28,19 @@ const VEHICLES = [
 
 const AIRPORTS = ['Heathrow', 'Gatwick', 'London City', 'Luton', 'Stansted', 'Southend']
 
+const JOURNEYS = [
+  '✈ Airport Transfers',
+  '🎭 Theatre Trips',
+  '💼 Business Meetings',
+  '🥂 Special Occasions',
+  '💒 Weddings',
+  '🏇 Race Days',
+  '⚽ Sporting Events',
+  '🚢 Cruise Terminals',
+  '🎓 School Runs',
+  '🍽 Restaurant Evenings',
+]
+
 const AREAS = ['Theydon Bois', 'Loughton', 'Epping', 'Abridge', 'Ongar', 'Buckhurst Hill', 'Chigwell', 'Woodford Green']
 
 export default function Home() {
@@ -88,13 +101,11 @@ export default function Home() {
           {/* Airport badges */}
           <div className="absolute bottom-0 left-0 right-0 bg-black/20 backdrop-blur-sm border-t border-white/5 overflow-hidden">
             <div className="py-3">
-              <div className="flex airport-scroll" style={{ width: 'max-content', animation: 'airportScroll 15s linear infinite' }}>
+              <div className="flex" style={{ width: 'max-content', animation: 'airportScroll 25s linear infinite' }}>
                 {[...Array(3)].map((_, i) => (
-                  <div key={i} className="flex items-center gap-6 px-4">
-                    {AIRPORTS.map(a => (
-                      <span key={`${i}-${a}`} className="text-xs text-white/50 whitespace-nowrap flex items-center gap-2">
-                        <span style={{ color: '#c9a96e' }}>✈</span> {a}
-                      </span>
+                  <div key={i} className="flex items-center gap-8 px-4">
+                    {JOURNEYS.map(j => (
+                      <span key={`${i}-${j}`} className="text-xs text-white/50 whitespace-nowrap">{j}</span>
                     ))}
                   </div>
                 ))}
