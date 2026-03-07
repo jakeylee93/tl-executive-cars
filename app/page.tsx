@@ -94,7 +94,7 @@ export default function Home() {
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
-                className="text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05] mb-8"
+                className="text-[clamp(2rem,5.5vw,6rem)] text-white leading-[1.1] mb-8 whitespace-nowrap"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
               >
                 Anywhere You Need,<br />
