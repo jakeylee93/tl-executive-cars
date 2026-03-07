@@ -91,6 +91,7 @@ export default function Home() {
       <section className="pt-24 pb-0">
         <div className="relative min-h-[70vh] flex items-center" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
           <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 w-full">
+            <div className="flex items-center justify-between gap-12">
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
@@ -112,6 +113,16 @@ export default function Home() {
                   Call Us
                 </a>
               </div>
+            </div>
+
+            {/* Logo on right — hidden on mobile, visible on md+ */}
+            <div className="hidden md:flex items-center justify-center flex-shrink-0">
+              <img 
+                src="/logo.png" 
+                alt="Theydon & Loughton Executive Cars" 
+                className="w-48 lg:w-64 xl:w-72 h-auto opacity-90 drop-shadow-2xl"
+              />
+            </div>
             </div>
           </div>
           
