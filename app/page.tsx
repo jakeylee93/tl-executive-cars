@@ -45,6 +45,7 @@ const AREAS = ['Theydon Bois', 'Loughton', 'Epping', 'Abridge', 'Ongar', 'Buckhu
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', pickup: '', destination: '', date: '', passengers: '1', message: '' })
+  const [selectedCar, setSelectedCar] = useState<number | null>(null)
 
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
@@ -144,10 +145,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Fleet */}
-      <section id="fleet" className="py-20 md:py-28 px-6 bg-gradient-to-b from-gray-50 to-white border-t border-black/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+      {/* Fleet — Scrolling */}
+      <section id="fleet" className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white border-t border-black/5 overflow-hidden">
+        <div className="px-6 mb-12">
+          <div className="max-w-6xl mx-auto text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-3">Our Fleet</p>
             <h3 
               className="text-3xl md:text-4xl text-black"
@@ -156,35 +157,69 @@ export default function Home() {
               Licensed & Discreet
             </h3>
             <p className="text-sm text-black/50 mt-3 max-w-lg mx-auto">
-              All vehicles are licensed and exempt from displaying private hire plates, enabling a discreet service.
+              All vehicles are licensed and exempt from displaying private hire plates. Tap a vehicle to learn more.
             </p>
           </div>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {VEHICLES.map(v => (
-              <div key={v.name} className="rounded-2xl overflow-hidden border border-black/5">
-                <div className="aspect-[16/10] relative overflow-hidden">
-                  <img src={v.image} alt={v.name} className="w-full h-full object-cover" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <p className="text-white text-xs font-medium bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
-                      👤 {v.passengers} &nbsp; 🧳 {v.bags}
-                    </p>
+        <div className="relative">
+          <div 
+            className="flex gap-4 md:gap-6 fleet-scroll" 
+            style={{ 
+              width: 'max-content', 
+              animation: selectedCar !== null ? 'none' : 'fleetScroll 25s linear infinite',
+            }}
+          >
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex gap-4 md:gap-6 pl-4 md:pl-6">
+                {VEHICLES.map((v, idx) => (
+                  <div 
+                    key={`${setIdx}-${v.name}`} 
+                    className={`w-[300px] md:w-[380px] flex-shrink-0 rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${
+                      selectedCar === idx ? 'border-black/20 shadow-lg scale-[1.02]' : 'border-black/5 hover:border-black/10'
+                    }`}
+                    onClick={() => setSelectedCar(selectedCar === idx ? null : idx)}
+                  >
+                    <div className="aspect-[16/10] relative overflow-hidden">
+                      <img src={v.image} alt={v.name} className="w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      <div className="absolute bottom-4 left-4">
+                        <p className="text-white text-xs font-medium bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                          {v.name}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h4 className="text-lg font-semibold text-black mb-2">{v.name}</h4>
-                  <p className="text-sm text-black/60 leading-relaxed">{v.desc}</p>
-                </div>
+                ))}
               </div>
             ))}
           </div>
+        </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-sm text-black/50">
-              We accept <span className="font-medium text-black/70">Visa, Mastercard, American Express, Apple Pay</span> and more.
-            </p>
+        {/* Selected car details */}
+        {selectedCar !== null && (
+          <div className="px-6 mt-8">
+            <div className="max-w-lg mx-auto text-center p-6 rounded-2xl border border-black/5 bg-white shadow-sm">
+              <h4 className="text-lg font-semibold text-black mb-2">{VEHICLES[selectedCar].name}</h4>
+              <p className="text-sm text-black/60 leading-relaxed mb-4">{VEHICLES[selectedCar].desc}</p>
+              <div className="flex items-center justify-center gap-6 text-sm text-black/50">
+                <span>👤 {VEHICLES[selectedCar].passengers} passengers</span>
+                <span>🧳 {VEHICLES[selectedCar].bags} bags</span>
+              </div>
+              <button 
+                onClick={() => setSelectedCar(null)} 
+                className="mt-4 text-xs text-black/30 hover:text-black/60 transition"
+              >
+                Close ✕
+              </button>
+            </div>
           </div>
+        )}
+
+        <div className="mt-12 text-center px-6">
+          <p className="text-sm text-black/50">
+            We accept <span className="font-medium text-black/70">Visa, Mastercard, American Express, Apple Pay</span> and more.
+          </p>
         </div>
       </section>
 

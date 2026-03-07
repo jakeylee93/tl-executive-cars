@@ -16,3 +16,12 @@ html { scroll-behavior: smooth; }
 .testimonial-scroll:hover {
   animation-play-state: paused;
 }
+
+@keyframes fleetScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.fleet-scroll:hover {
+  animation-play-state: paused;
+}
