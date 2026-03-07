@@ -69,12 +69,12 @@ export default function Home() {
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/5">
-        <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between px-6 py-5 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="T&L Executive Cars" className="w-10 h-10 object-contain" />
+            <img src="/logo.png" alt="T&L Executive Cars" className="w-14 h-14 object-contain" />
             <div>
-              <h1 className="text-sm font-semibold text-black tracking-wide">Theydon & Loughton Executive Cars</h1>
-              <p className="text-[9px] text-black/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
+              <h1 className="text-base font-semibold text-black tracking-wide">Theydon & Loughton Executive Cars</h1>
+              <p className="text-[10px] text-black/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
             </div>
           </a>
           <div className="flex items-center gap-6">
