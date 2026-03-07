@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'T&L Executive Cars — Theydon Bois Chauffeur Service',
+  title: 'Theydon & Loughton Executive Cars — Chauffeur Service',
   description: 'Theydon & Loughton Executive Cars. Based in Theydon Bois, we take you anywhere. Airports, London, nationwide. Established 2008.',
 }
 

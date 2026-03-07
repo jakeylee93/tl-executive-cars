@@ -73,7 +73,7 @@ export default function Home() {
           <a href="/" className="flex items-center gap-3">
             <img src="/logo.png" alt="T&L Executive Cars" className="w-10 h-10 object-contain" />
             <div>
-              <h1 className="text-sm font-semibold text-black tracking-wide">T&L Executive Cars</h1>
+              <h1 className="text-sm font-semibold text-black tracking-wide">Theydon & Loughton Executive Cars</h1>
               <p className="text-[9px] text-black/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
             </div>
           </a>
@@ -431,7 +431,7 @@ export default function Home() {
                 className="text-3xl md:text-4xl mb-2"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
               >
-                T&L Executive Cars
+                Theydon & Loughton Executive Cars
               </h4>
               <p className="text-[10px] uppercase tracking-[0.4em] text-white/30">Theydon Bois &middot; Est. 2008</p>
             </div>
@@ -464,7 +464,7 @@ export default function Home() {
 
             <div className="pt-8 border-t border-white/10 text-center">
               <p className="text-[11px] text-white/20">
-                © {new Date().getFullYear()} T&L Executive Cars. All rights reserved.
+                © {new Date().getFullYear()} Theydon & Loughton Executive Cars. All rights reserved.
               </p>
             </div>
           </div>
