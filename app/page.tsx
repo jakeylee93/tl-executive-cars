@@ -139,7 +139,7 @@ export default function Home() {
               className="text-3xl md:text-4xl text-black"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              Tailored to Your Needs
+              We Are Tailored to Your Needs
             </h3>
           </div>
 
