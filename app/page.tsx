@@ -298,26 +298,26 @@ export default function Home() {
         </div>
 
         <div className="relative">
-          <div className="flex items-center gap-12 md:gap-16 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 35s linear infinite' }}>
+          <div className="flex items-center gap-10 md:gap-14 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 35s linear infinite' }}>
             {[...Array(2)].map((_, setIdx) => (
-              <div key={setIdx} className="flex items-center gap-12 md:gap-16 px-6">
+              <div key={setIdx} className="flex items-center gap-10 md:gap-14 px-6">
                 {[
-                  { name: 'LONDON SPEAKER BUREAU', style: 'tracking-[0.15em] text-[11px] font-semibold' },
-                  { name: 'SPEAKERS CORNER', style: 'tracking-[0.2em] text-[11px] font-semibold' },
-                  { name: 'Jamil Qureshi', style: 'text-lg italic', serif: true },
-                  { name: 'THE JOCKEY CLUB', style: 'tracking-[0.2em] text-[11px] font-bold' },
-                  { name: 'ENDEMOLSHINE GROUP', style: 'tracking-[0.12em] text-[11px] font-semibold' },
-                  { name: 'CHAPMAN FREEBORN', style: 'tracking-[0.18em] text-[11px] font-semibold' },
-                  { name: 'JLA', style: 'tracking-[0.35em] text-lg font-bold' },
-                  { name: 'GB HELICOPTERS', style: 'tracking-[0.2em] text-[11px] font-semibold' },
-                  { name: 'FRESH PARTNERS', style: 'tracking-[0.15em] text-[11px] font-semibold' },
+                  { name: 'LONDON SPEAKER BUREAU', style: 'tracking-[0.15em] text-xs font-semibold' },
+                  { name: 'SPEAKERS CORNER', style: 'tracking-[0.2em] text-xs font-semibold' },
+                  { name: 'Jamil Qureshi', style: 'text-xl italic', serif: true },
+                  { name: 'THE JOCKEY CLUB', style: 'tracking-[0.2em] text-xs font-bold' },
+                  { name: 'ENDEMOLSHINE GROUP', style: 'tracking-[0.12em] text-xs font-semibold' },
+                  { name: 'CHAPMAN FREEBORN', style: 'tracking-[0.18em] text-xs font-semibold' },
+                  { name: 'JLA', style: 'tracking-[0.35em] text-xl font-bold' },
+                  { name: 'GB HELICOPTERS', style: 'tracking-[0.2em] text-xs font-semibold' },
+                  { name: 'FRESH PARTNERS', style: 'tracking-[0.15em] text-xs font-semibold' },
                 ].map(c => (
                   <div 
                     key={`${setIdx}-${c.name}`} 
-                    className="flex-shrink-0 flex items-center justify-center h-14 opacity-30 hover:opacity-70 transition-all duration-300"
+                    className="flex-shrink-0 flex items-center justify-center py-3 px-5 rounded-lg border border-black/5 bg-white"
                   >
                     <span 
-                      className={`whitespace-nowrap text-black ${c.style}`}
+                      className={`whitespace-nowrap text-black/50 ${c.style}`}
                       style={{ fontFamily: c.serif ? "'Cormorant Garamond', serif" : "'Inter', sans-serif" }}
                     >
                       {c.name}
