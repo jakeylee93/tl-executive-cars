@@ -94,13 +94,13 @@ export default function Home() {
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
-                className="text-4xl md:text-6xl text-white leading-[1.1] mb-8"
+                className="text-5xl md:text-7xl lg:text-8xl text-white leading-[1.05] mb-8"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
               >
                 Anywhere You Need,<br />
                 <span className="italic" style={{ color: '#c9a96e' }}>Whenever the Time.</span>
               </h2>
-              <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-lg mb-10">
+              <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-xl mb-10">
                 Based in Theydon Bois, we take you wherever you need to go. Airports, the city, nationwide — professional, reliable, always on time.
               </p>
               <div className="flex flex-wrap gap-4">
