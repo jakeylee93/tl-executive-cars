@@ -63,7 +63,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/5">
         <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="T&L Executive Cars" className="w-10 h-10 object-contain" />
+            <img src="/logo.png" alt="T&L Executive Cars" className="w-10 h-10 object-contain" />
             <div>
               <h1 className="text-sm font-semibold text-black tracking-wide">T&L Executive Cars</h1>
               <p className="text-[9px] text-black/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
@@ -411,7 +411,7 @@ export default function Home() {
         <div className="px-6 py-20 md:py-24">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <img src="/logo.svg" alt="T&L Executive Cars" className="w-24 h-24 object-contain mx-auto mb-4" />
+              <img src="/logo.png" alt="T&L Executive Cars" className="w-24 h-24 object-contain mx-auto mb-4" />
               <h4 
                 className="text-3xl md:text-4xl mb-2"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
