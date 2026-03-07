@@ -21,9 +21,9 @@ const TESTIMONIALS = [
 ]
 
 const VEHICLES = [
-  { name: 'Executive Saloon', passengers: 4, bags: 3, desc: 'Mercedes E-Class or similar. Perfect for airport transfers and business travel.' },
-  { name: 'Executive MPV', passengers: 7, bags: 7, desc: 'Mercedes V-Class or similar. Ideal for families and small groups.' },
-  { name: 'Executive Minibus', passengers: 8, bags: 8, desc: 'VW Transporter or similar. Perfect for larger groups and events.' },
+  { name: 'Executive Saloon', passengers: 4, bags: 3, desc: 'Mercedes E-Class or similar. Perfect for airport transfers and business travel.', image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=500&fit=crop' },
+  { name: 'Executive MPV', passengers: 7, bags: 7, desc: 'Mercedes V-Class or similar. Ideal for families and small groups.', image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&h=500&fit=crop' },
+  { name: 'Executive Minibus', passengers: 8, bags: 8, desc: 'VW Transporter or similar. Perfect for larger groups and events.', image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop' },
 ]
 
 const AIRPORTS = ['Heathrow', 'Gatwick', 'London City', 'Luton', 'Stansted', 'Southend']
@@ -145,19 +145,18 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {VEHICLES.map(v => (
               <div key={v.name} className="rounded-2xl overflow-hidden border border-black/5">
-                <div className="aspect-[16/10] flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #1a1a2e, #16213e)' }}>
-                  <div className="text-center">
-                    <p className="text-4xl mb-2" style={{ color: '#c9a96e', fontFamily: "'Cormorant Garamond', serif" }}>{v.passengers}</p>
-                    <p className="text-[10px] uppercase tracking-wider text-white/40">Passengers</p>
+                <div className="aspect-[16/10] relative overflow-hidden">
+                  <img src={v.image} alt={v.name} className="w-full h-full object-cover" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <p className="text-white text-xs font-medium bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                      👤 {v.passengers} &nbsp; 🧳 {v.bags}
+                    </p>
                   </div>
                 </div>
                 <div className="p-6">
                   <h4 className="text-lg font-semibold text-black mb-2">{v.name}</h4>
-                  <p className="text-sm text-black/60 mb-4 leading-relaxed">{v.desc}</p>
-                  <div className="flex items-center gap-4 text-xs text-black/40">
-                    <span>👤 {v.passengers} passengers</span>
-                    <span>🧳 {v.bags} bags</span>
-                  </div>
+                  <p className="text-sm text-black/60 leading-relaxed">{v.desc}</p>
                 </div>
               </div>
             ))}
@@ -266,12 +265,14 @@ export default function Home() {
                 className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
                 value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
             </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              <input type="tel" placeholder="Phone Number"
-                className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
-                value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+            <input type="tel" placeholder="Phone Number"
+              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
+              value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+            <div className="relative">
+              <label className="absolute left-5 top-1 text-[10px] uppercase tracking-wider text-black/30">Date of Travel</label>
               <input type="date" required
-                className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
+                className="w-full px-5 pt-5 pb-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition bg-white appearance-none"
+                style={{ colorScheme: 'light' }}
                 value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
             </div>
             <div className="grid md:grid-cols-2 gap-4">
