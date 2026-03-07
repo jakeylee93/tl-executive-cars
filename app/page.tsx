@@ -145,7 +145,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Fleet — Scrolling */}
+      {/* Fleet — Carousel with arrows */}
       <section id="fleet" className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white border-t border-black/5 overflow-hidden">
         <div className="px-6 mb-12">
           <div className="max-w-6xl mx-auto text-center">
@@ -157,69 +157,73 @@ export default function Home() {
               Licensed & Discreet
             </h3>
             <p className="text-sm text-black/50 mt-3 max-w-lg mx-auto">
-              All vehicles are licensed and exempt from displaying private hire plates. Tap a vehicle to learn more.
+              All vehicles are licensed and exempt from displaying private hire plates.
             </p>
           </div>
         </div>
 
-        <div className="relative">
-          <div 
-            className="flex gap-4 md:gap-6 fleet-scroll" 
-            style={{ 
-              width: 'max-content', 
-              animation: selectedCar !== null ? 'none' : 'fleetScroll 25s linear infinite',
-            }}
-          >
-            {[...Array(2)].map((_, setIdx) => (
-              <div key={setIdx} className="flex gap-4 md:gap-6 pl-4 md:pl-6">
-                {VEHICLES.map((v, idx) => (
-                  <div 
-                    key={`${setIdx}-${v.name}`} 
-                    className={`w-[300px] md:w-[380px] flex-shrink-0 rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${
-                      selectedCar === idx ? 'border-black/20 shadow-lg scale-[1.02]' : 'border-black/5 hover:border-black/10'
-                    }`}
-                    onClick={() => setSelectedCar(selectedCar === idx ? null : idx)}
-                  >
-                    <div className="aspect-[16/10] relative overflow-hidden">
-                      <img src={v.image} alt={v.name} className="w-full h-full object-cover" loading="lazy" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      <div className="absolute bottom-4 left-4">
-                        <p className="text-white text-xs font-medium bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
-                          {v.name}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        <div className="max-w-3xl mx-auto px-6">
+          {/* Main car image */}
+          <div className="relative rounded-2xl overflow-hidden mb-6">
+            <img 
+              src={VEHICLES[selectedCar ?? 0].image} 
+              alt={VEHICLES[selectedCar ?? 0].name} 
+              className="w-full aspect-[16/9] object-cover transition-all duration-500" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            
+            {/* Left/Right arrows */}
+            <button 
+              onClick={() => setSelectedCar(prev => prev === null || prev === 0 ? VEHICLES.length - 1 : prev - 1)}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition"
+            >
+              ‹
+            </button>
+            <button 
+              onClick={() => setSelectedCar(prev => prev === null || prev === VEHICLES.length - 1 ? 0 : prev + 1)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition"
+            >
+              ›
+            </button>
 
-        {/* Selected car details */}
-        {selectedCar !== null && (
-          <div className="px-6 mt-8">
-            <div className="max-w-lg mx-auto text-center p-6 rounded-2xl border border-black/5 bg-white shadow-sm">
-              <h4 className="text-lg font-semibold text-black mb-2">{VEHICLES[selectedCar].name}</h4>
-              <p className="text-sm text-black/60 leading-relaxed mb-4">{VEHICLES[selectedCar].desc}</p>
-              <div className="flex items-center justify-center gap-6 text-sm text-black/50">
-                <span>👤 {VEHICLES[selectedCar].passengers} passengers</span>
-                <span>🧳 {VEHICLES[selectedCar].bags} bags</span>
-              </div>
-              <button 
-                onClick={() => setSelectedCar(null)} 
-                className="mt-4 text-xs text-black/30 hover:text-black/60 transition"
-              >
-                Close ✕
-              </button>
+            {/* Car name overlay */}
+            <div className="absolute bottom-6 left-6 right-6">
+              <h4 className="text-2xl font-semibold text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                {VEHICLES[selectedCar ?? 0].name}
+              </h4>
             </div>
           </div>
-        )}
 
-        <div className="mt-12 text-center px-6">
-          <p className="text-sm text-black/50">
-            We accept <span className="font-medium text-black/70">Visa, Mastercard, American Express, Apple Pay</span> and more.
-          </p>
+          {/* Car details */}
+          <div className="text-center mb-8">
+            <p className="text-sm text-black/60 leading-relaxed mb-4">{VEHICLES[selectedCar ?? 0].desc}</p>
+            <div className="flex items-center justify-center gap-6 text-sm text-black/50">
+              <span className="flex items-center gap-1.5">👤 {VEHICLES[selectedCar ?? 0].passengers} passengers</span>
+              <span className="flex items-center gap-1.5">🧳 {VEHICLES[selectedCar ?? 0].bags} bags</span>
+            </div>
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex items-center justify-center gap-3">
+            {VEHICLES.map((v, idx) => (
+              <button
+                key={v.name}
+                onClick={() => setSelectedCar(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  (selectedCar ?? 0) === idx 
+                    ? 'w-8 h-2' 
+                    : 'w-2 h-2 hover:bg-black/30'
+                }`}
+                style={{ background: (selectedCar ?? 0) === idx ? '#1a1a2e' : 'rgba(0,0,0,0.15)' }}
+              />
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-sm text-black/50">
+              We accept <span className="font-medium text-black/70">Visa, Mastercard, American Express, Apple Pay</span> and more.
+            </p>
+          </div>
         </div>
       </section>
 
