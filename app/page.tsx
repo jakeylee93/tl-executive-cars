@@ -442,7 +442,7 @@ export default function Home() {
                 <div className="space-y-2 text-sm text-white/50">
                   <a href="tel:+447904428896" className="block hover:text-white transition">07904 428 896</a>
                   <a href="mailto:simonemburns@gmail.com" className="block hover:text-white transition">simonemburns@gmail.com</a>
-                  <p>Thrifts Mead, Theydon Bois CM16 7NE</p>
+                  <p>Theydon Bois, Essex</p>
                 </div>
               </div>
               <div className="text-center">
@@ -456,8 +456,8 @@ export default function Home() {
               <div className="text-center md:text-right">
                 <h5 className="text-[10px] uppercase tracking-[0.25em] text-white/30 mb-4">Legal</h5>
                 <div className="space-y-2 text-sm text-white/50">
-                  <a href="#" className="block hover:text-white transition">Privacy Policy</a>
-                  <a href="#" className="block hover:text-white transition">Cookies Policy</a>
+                  <a href="/privacy" className="block hover:text-white transition">Privacy Policy</a>
+                  <a href="/cookies" className="block hover:text-white transition">Cookies Policy</a>
                 </div>
               </div>
             </div>
