@@ -298,8 +298,8 @@ export default function Home() {
         </div>
 
         <div className="relative">
-          <div className="flex items-center gap-12 md:gap-16 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 35s linear infinite' }}>
-            {[...Array(2)].map((_, setIdx) => (
+          <div className="flex items-center gap-12 md:gap-16 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 15s linear infinite' }}>
+            {[...Array(3)].map((_, setIdx) => (
               <div key={setIdx} className="flex items-center gap-12 md:gap-16 px-8">
                 {[
                   { name: 'London Speaker Bureau', src: '/clients/lsb.png' },
@@ -314,7 +314,7 @@ export default function Home() {
                 ].map(c => (
                   <div 
                     key={`${setIdx}-${c.name}`} 
-                    className="flex-shrink-0 flex items-center justify-center h-12 opacity-60 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
+                    className="flex-shrink-0 flex items-center justify-center h-12"
                   >
                     {c.text ? (
                       <span className="text-xs font-semibold tracking-[0.15em] text-black/60 whitespace-nowrap">{c.text}</span>
