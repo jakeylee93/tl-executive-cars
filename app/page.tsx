@@ -71,7 +71,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
         <div className="flex items-center justify-between px-6 py-5 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="T&L Executive Cars" className="w-[120px] h-[120px] object-contain" />
+            <img src="/logo.png" alt="T&L Executive Cars" className="w-[100px] h-[100px] object-contain" />
             <div>
               <h1 className="text-base font-semibold text-white tracking-wide">Theydon & Loughton Executive Cars</h1>
               <p className="text-[10px] text-white/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
@@ -90,7 +90,7 @@ export default function Home() {
       {/* Hero */}
       <section className="pt-0 pb-0">
         <div className="relative min-h-[50vh] flex items-center" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
-          <div className="max-w-7xl mx-auto px-6 pt-28 pb-20 md:pt-32 md:pb-24 w-full">
+          <div className="max-w-7xl mx-auto px-6 pt-36 pb-20 md:pt-40 md:pb-24 w-full">
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
