@@ -21,9 +21,9 @@ const TESTIMONIALS = [
 ]
 
 const VEHICLES = [
-  { name: 'Executive Saloon', passengers: 4, bags: 3, desc: 'Mercedes E-Class or similar. Perfect for airport transfers and business travel.', image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=500&fit=crop' },
-  { name: 'Executive MPV', passengers: 7, bags: 7, desc: 'Mercedes V-Class or similar. Ideal for families and small groups.', image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800&h=500&fit=crop' },
-  { name: 'Executive Minibus', passengers: 8, bags: 8, desc: 'VW Transporter or similar. Perfect for larger groups and events.', image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop' },
+  { name: 'Executive Saloon', passengers: 4, bags: 3, desc: 'Mercedes E-Class or similar. Perfect for airport transfers and business travel.', image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&h=500&fit=crop' },
+  { name: 'Executive MPV', passengers: 7, bags: 7, desc: 'Mercedes V-Class or similar. Ideal for families and small groups.', image: 'https://images.unsplash.com/photo-1632245889029-e406faaa34cd?w=800&h=500&fit=crop' },
+  { name: 'Executive Minibus', passengers: 8, bags: 8, desc: 'VW Transporter or similar. Perfect for larger groups and events.', image: 'https://images.unsplash.com/photo-1570733577524-3a047079e80d?w=800&h=500&fit=crop' },
 ]
 
 const AIRPORTS = ['Heathrow', 'Gatwick', 'London City', 'Luton', 'Stansted', 'Southend']
@@ -268,13 +268,12 @@ export default function Home() {
             <input type="tel" placeholder="Phone Number"
               className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
               value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
-            <div className="relative">
-              <label className="absolute left-5 top-1 text-[10px] uppercase tracking-wider text-black/30">Date of Travel</label>
-              <input type="date" required
-                className="w-full px-5 pt-5 pb-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition bg-white appearance-none"
-                style={{ colorScheme: 'light' }}
-                value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
-            </div>
+            <input type="text" placeholder="Date of Travel" required
+              onFocus={e => { e.target.type = 'date' }}
+              onBlur={e => { if (!e.target.value) e.target.type = 'text' }}
+              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition bg-white placeholder:text-black/40"
+              style={{ fontFamily: "'Inter', sans-serif" }}
+              value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
             <div className="grid md:grid-cols-2 gap-4">
               <input type="text" placeholder="Pick-up Location" required
                 className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
@@ -284,7 +283,8 @@ export default function Home() {
                 value={formData.destination} onChange={e => setFormData({...formData, destination: e.target.value})} />
             </div>
             <select 
-              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition text-black/60"
+              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition text-black/60 bg-white"
+              style={{ fontFamily: "'Inter', sans-serif" }}
               value={formData.passengers} onChange={e => setFormData({...formData, passengers: e.target.value})}>
               {[1,2,3,4,5,6,7,8].map(n => (
                 <option key={n} value={n}>{n} Passenger{n > 1 ? 's' : ''}</option>
