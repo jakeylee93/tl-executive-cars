@@ -43,9 +43,19 @@ const JOURNEYS = [
 
 const AREAS = ['Theydon Bois', 'Loughton', 'Epping', 'Abridge', 'Ongar', 'Buckhurst Hill', 'Chigwell', 'Woodford Green']
 
+const SERVICES = [
+  { title: 'Airport Transfers', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>, desc: 'Reliable transfers to and from all major London airports including Heathrow, Gatwick, London City, Luton, Stansted and Southend.', details: ['Flight tracking as standard — we monitor delays', 'Meet & greet service available', 'Fixed prices — no surge or hidden charges', 'Early morning and late night availability'] },
+  { title: 'Corporate Travel', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M20 7H4a2 2 0 0 0-2 2v10h20V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/></svg>, desc: 'Professional and discreet service for businesses of all sizes. We understand the importance of punctuality and presentation.', details: ['Corporate account billing available', 'Confidential and discreet vehicles', 'Multi-stop and full-day hire options', 'Regular commute packages'] },
+  { title: 'Special Occasions', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M8 22h8l-4-10L8 22z"/><path d="M12 12V2"/><path d="M7 7c3-3 8 0 5 5"/><path d="M17 7c-3-3-8 0-5 5"/></svg>, desc: 'Make every journey part of the celebration. From birthdays to anniversaries, we ensure you arrive in style.', details: ['Celebration packages available', 'Chilled refreshments on request', 'Flexible scheduling for long events', 'Red carpet drop-off service'] },
+  { title: 'Weddings', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>, desc: 'Your special day deserves a special journey. We provide elegant, reliable transport for the entire wedding party.', details: ['Bridal car with ribbons and decoration', 'Guest shuttle service available', 'Venue-to-venue transfers', 'Flexible timing for photos and delays'] },
+  { title: 'Theatre Trips', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>, desc: 'Door-to-door service for West End shows and London entertainment. No parking stress, no last-minute rush.', details: ['Drop-off at the venue door', 'Waiting service or scheduled pick-up', 'Dinner and show packages', 'Group bookings for parties'] },
+  { title: 'Race Days', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>, desc: 'Arrive at Ascot, Cheltenham or Newmarket in style. We handle the driving so you can enjoy the day.', details: ['All major UK racecourses covered', 'Full-day hire with flexible pick-up', 'Group transport for up to 8 guests', 'Post-event patience — we wait for you'] },
+]
+
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', pickup: '', destination: '', date: '', passengers: '1', message: '' })
   const [selectedCar, setSelectedCar] = useState<number | null>(null)
+  const [activeService, setActiveService] = useState<number | null>(null)
 
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
@@ -116,7 +126,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services — Grid of 6 */}
+      {/* Services — Grid of 6 with modals */}
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -130,24 +140,85 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
-            {[
-              { title: 'Airport Transfers', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg> },
-              { title: 'Corporate Travel', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M20 7H4a2 2 0 0 0-2 2v10h20V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/></svg> },
-              { title: 'Special Occasions', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M8 22h8l-4-10L8 22z"/><path d="M12 12V2"/><path d="M7 7c3-3 8 0 5 5"/><path d="M17 7c-3-3-8 0-5 5"/></svg> },
-              { title: 'Weddings', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> },
-              { title: 'Theatre Trips', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> },
-              { title: 'Race Days', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> },
-            ].map(s => (
-              <div key={s.title} className="text-center p-4 md:p-5 rounded-2xl border border-black/5 hover:border-black/15 transition group">
+            {SERVICES.map((s, idx) => (
+              <button 
+                key={s.title} 
+                onClick={() => setActiveService(idx)}
+                className="text-center p-4 md:p-5 rounded-2xl border border-black/5 hover:border-black/15 hover:shadow-sm transition group cursor-pointer"
+              >
                 <div className="flex justify-center mb-3 text-black/40 group-hover:text-black/70 transition">
                   {s.icon}
                 </div>
                 <p className="text-[11px] md:text-xs text-black/60 font-medium leading-tight">{s.title}</p>
-              </div>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Service Modal */}
+      {activeService !== null && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6"
+          onClick={() => setActiveService(null)}
+        >
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div 
+            className="relative bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button 
+              onClick={() => setActiveService(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/5 flex items-center justify-center text-black/40 hover:text-black hover:bg-black/10 transition"
+            >
+              ✕
+            </button>
+
+            {/* Icon */}
+            <div className="flex justify-center mb-4 text-black/50">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: '#1a1a2e' }}>
+                <div className="text-white [&>svg]:w-5 [&>svg]:h-5">
+                  {SERVICES[activeService].icon}
+                </div>
+              </div>
+            </div>
+
+            {/* Title */}
+            <h4 
+              className="text-2xl text-center text-black mb-3"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              {SERVICES[activeService].title}
+            </h4>
+
+            {/* Description */}
+            <p className="text-sm text-black/60 leading-relaxed text-center mb-6">
+              {SERVICES[activeService].desc}
+            </p>
+
+            {/* Details list */}
+            <ul className="space-y-3 mb-8">
+              {SERVICES[activeService].details.map(d => (
+                <li key={d} className="flex items-start gap-3 text-sm text-black/60">
+                  <span className="mt-0.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#c9a96e' }} />
+                  {d}
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA */}
+            <a 
+              href="#quote" 
+              onClick={() => setActiveService(null)}
+              className="block w-full py-3 rounded-xl text-sm font-semibold text-white text-center transition hover:scale-[1.01]"
+              style={{ background: '#1a1a2e' }}
+            >
+              Get a Quote
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* Fleet — Scrolling like testimonials */}
       <section id="fleet" className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white border-t border-black/5 overflow-hidden">
