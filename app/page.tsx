@@ -34,7 +34,7 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', pickup: '', destination: '', date: '', passengers: '1', message: '' })
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/5">
         <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
@@ -86,11 +86,11 @@ export default function Home() {
           </div>
           
           {/* Airport badges */}
-          <div className="absolute bottom-0 left-0 right-0 bg-black/20 backdrop-blur-sm border-t border-white/5">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-6 overflow-x-auto">
-              <span className="text-[10px] uppercase tracking-wider text-white/30 whitespace-nowrap">Airports:</span>
+          <div className="absolute bottom-0 left-0 right-0 bg-black/20 backdrop-blur-sm border-t border-white/5 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-4 flex-wrap justify-center md:justify-start">
+              <span className="text-[10px] uppercase tracking-wider text-white/30">Airports:</span>
               {AIRPORTS.map(a => (
-                <span key={a} className="text-xs text-white/50 whitespace-nowrap">{a}</span>
+                <span key={a} className="text-xs text-white/50">{a}</span>
               ))}
             </div>
           </div>
@@ -224,16 +224,16 @@ export default function Home() {
       </section>
 
       {/* Areas */}
-      <section className="py-16 px-6 border-t border-black/5">
+      <section className="py-16 px-6 border-t border-black/5 overflow-hidden">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-6">Areas We Cover</p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 max-w-md mx-auto">
             {AREAS.map(a => (
-              <span key={a} className="px-4 py-2 rounded-full text-sm border border-black/10 text-black/60">
+              <span key={a} className="px-3 py-1.5 rounded-full text-xs border border-black/10 text-black/60">
                 {a}
               </span>
             ))}
-            <span className="px-4 py-2 rounded-full text-sm border border-black/10 text-black/60">
+            <span className="px-3 py-1.5 rounded-full text-xs border border-black/10 text-black/60">
               + All London Airports
             </span>
           </div>
