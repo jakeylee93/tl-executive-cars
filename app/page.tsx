@@ -63,9 +63,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-black/5">
         <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#1a1a2e' }}>
-              <span className="text-white text-xs font-bold">T&L</span>
-            </div>
+            <img src="/logo.png" alt="T&L Executive Cars" className="w-10 h-10 object-contain" />
             <div>
               <h1 className="text-sm font-semibold text-black tracking-wide">T&L Executive Cars</h1>
               <p className="text-[9px] text-black/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
@@ -102,7 +100,7 @@ export default function Home() {
                   style={{ background: '#c9a96e', color: '#1a1a2e' }}>
                   Book Now
                 </a>
-                <a href="tel:+447000000000" className="px-8 py-3 rounded-full text-sm font-medium border border-white/20 text-white hover:border-white/40 transition">
+                <a href="tel:+447904428896" className="px-8 py-3 rounded-full text-sm font-medium border border-white/20 text-white hover:border-white/40 transition">
                   Call Us
                 </a>
               </div>
@@ -413,21 +411,23 @@ export default function Home() {
         <div className="px-6 py-20 md:py-24">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
+              <img src="/logo.png" alt="T&L Executive Cars" className="w-20 h-20 object-contain mx-auto mb-4" />
               <h4 
                 className="text-3xl md:text-4xl mb-2"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
               >
                 T&L Executive Cars
               </h4>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-white/30">Est. 2008</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-white/30">Theydon Bois &middot; Est. 2008</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-12 mb-16">
               <div className="text-center md:text-left">
                 <h5 className="text-[10px] uppercase tracking-[0.25em] text-white/30 mb-4">Contact</h5>
                 <div className="space-y-2 text-sm text-white/50">
-                  <p>Thrifts Mead</p>
-                  <p>Theydon Bois CM16 7NE</p>
+                  <a href="tel:+447904428896" className="block hover:text-white transition">07904 428 896</a>
+                  <a href="mailto:simonemburns@gmail.com" className="block hover:text-white transition">simonemburns@gmail.com</a>
+                  <p>Thrifts Mead, Theydon Bois CM16 7NE</p>
                 </div>
               </div>
               <div className="text-center">
