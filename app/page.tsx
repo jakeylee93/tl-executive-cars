@@ -58,7 +58,7 @@ export default function Home() {
             </div>
             <div>
               <h1 className="text-sm font-semibold text-black tracking-wide">T&L Executive Cars</h1>
-              <p className="text-[9px] text-black/40 uppercase tracking-wider">Est. 2008</p>
+              <p className="text-[9px] text-black/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
             </div>
           </a>
           <div className="flex items-center gap-6">
@@ -76,16 +76,16 @@ export default function Home() {
         <div className="relative min-h-[70vh] flex items-center" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
           <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 w-full">
             <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">Premium Chauffeur Service</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
                 className="text-4xl md:text-6xl text-white leading-[1.1] mb-8"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
               >
-                Your Journey,<br />
-                <span className="italic" style={{ color: '#c9a96e' }}>Our Priority.</span>
+                Anywhere You Need,<br />
+                <span className="italic" style={{ color: '#c9a96e' }}>Whenever You Need.</span>
               </h2>
               <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-lg mb-10">
-                Professional executive car service covering Essex and London. Airport transfers, corporate travel, and special occasions.
+                Based in Theydon Bois, we take you wherever you need to go. Airports, the city, nationwide — professional, reliable, always on time.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="#quote" className="px-8 py-3 rounded-full text-sm font-medium transition-all hover:scale-105"

@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'T&L Executive Cars — Premium Chauffeur Service',
-  description: 'Professional executive car service covering Essex and London. Airport transfers, corporate travel, special occasions. Established 2008.',
+  title: 'T&L Executive Cars — Theydon Bois Chauffeur Service',
+  description: 'Theydon & Loughton Executive Cars. Based in Theydon Bois, we take you anywhere. Airports, London, nationwide. Established 2008.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
