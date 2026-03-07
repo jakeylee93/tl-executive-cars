@@ -71,7 +71,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
         <div className="flex items-center justify-between px-6 py-5 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="T&L Executive Cars" className="w-14 h-14 object-contain" />
+            <img src="/logo.png" alt="T&L Executive Cars" className="w-20 h-20 object-contain" />
             <div>
               <h1 className="text-base font-semibold text-white tracking-wide">Theydon & Loughton Executive Cars</h1>
               <p className="text-[10px] text-white/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
@@ -91,8 +91,7 @@ export default function Home() {
       <section className="pt-0 pb-0">
         <div className="relative min-h-[50vh] flex items-center" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
           <div className="max-w-7xl mx-auto px-6 pt-28 pb-20 md:pt-32 md:pb-24 w-full">
-            <div className="flex items-center gap-8 lg:gap-12">
-            <div className="flex-1 max-w-2xl">
+            <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
                 className="text-4xl md:text-6xl text-white leading-[1.1] mb-8"
@@ -115,14 +114,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Logo on right — hidden on mobile, visible on md+ */}
-            <div className="hidden md:flex flex-1 items-center justify-center">
-              <img 
-                src="/logo.png" 
-                alt="Theydon & Loughton Executive Cars" 
-                className="w-48 lg:w-64 xl:w-72 h-auto opacity-90 drop-shadow-2xl"
-              />
-            </div>
             </div>
           </div>
           
