@@ -116,10 +116,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Services — Grid of 6 */}
       <section className="py-20 md:py-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
             <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-3">What We Offer</p>
             <h3 
               className="text-3xl md:text-4xl text-black"
@@ -129,23 +129,27 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
             {[
-              { icon: '✈️', title: 'Airport Transfers', desc: 'Reliable transfers to all London airports. Flight tracking included — we adjust to delays so you never wait.' },
-              { icon: '💼', title: 'Corporate Travel', desc: 'Professional service for businesses. Account billing, meet & greet, and discreet licensed vehicles.' },
-              { icon: '🥂', title: 'Special Occasions', desc: 'Weddings, events, theatre trips. Make every journey part of the experience.' },
+              { title: 'Airport Transfers', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg> },
+              { title: 'Corporate Travel', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M20 7H4a2 2 0 0 0-2 2v10h20V9a2 2 0 0 0-2-2z"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/></svg> },
+              { title: 'Special Occasions', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M8 22h8l-4-10L8 22z"/><path d="M12 12V2"/><path d="M7 7c3-3 8 0 5 5"/><path d="M17 7c-3-3-8 0-5 5"/></svg> },
+              { title: 'Weddings', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> },
+              { title: 'Theatre Trips', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> },
+              { title: 'Race Days', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> },
             ].map(s => (
-              <div key={s.title} className="text-center p-8 rounded-2xl border border-black/5 hover:border-black/10 transition">
-                <div className="text-3xl mb-4">{s.icon}</div>
-                <h4 className="text-lg font-semibold text-black mb-3">{s.title}</h4>
-                <p className="text-sm text-black/60 leading-relaxed">{s.desc}</p>
+              <div key={s.title} className="text-center p-4 md:p-5 rounded-2xl border border-black/5 hover:border-black/15 transition group">
+                <div className="flex justify-center mb-3 text-black/40 group-hover:text-black/70 transition">
+                  {s.icon}
+                </div>
+                <p className="text-[11px] md:text-xs text-black/60 font-medium leading-tight">{s.title}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Fleet — Carousel with arrows */}
+      {/* Fleet — Scrolling like testimonials */}
       <section id="fleet" className="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white border-t border-black/5 overflow-hidden">
         <div className="px-6 mb-12">
           <div className="max-w-6xl mx-auto text-center">
@@ -162,68 +166,36 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto px-6">
-          {/* Main car image */}
-          <div className="relative rounded-2xl overflow-hidden mb-6">
-            <img 
-              src={VEHICLES[selectedCar ?? 0].image} 
-              alt={VEHICLES[selectedCar ?? 0].name} 
-              className="w-full aspect-[16/9] object-cover transition-all duration-500" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            
-            {/* Left/Right arrows */}
-            <button 
-              onClick={() => setSelectedCar(prev => prev === null || prev === 0 ? VEHICLES.length - 1 : prev - 1)}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition"
-            >
-              ‹
-            </button>
-            <button 
-              onClick={() => setSelectedCar(prev => prev === null || prev === VEHICLES.length - 1 ? 0 : prev + 1)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition"
-            >
-              ›
-            </button>
-
-            {/* Car name overlay */}
-            <div className="absolute bottom-6 left-6 right-6">
-              <h4 className="text-2xl font-semibold text-white mb-1" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                {VEHICLES[selectedCar ?? 0].name}
-              </h4>
-            </div>
-          </div>
-
-          {/* Car details */}
-          <div className="text-center mb-8">
-            <p className="text-sm text-black/60 leading-relaxed mb-4">{VEHICLES[selectedCar ?? 0].desc}</p>
-            <div className="flex items-center justify-center gap-6 text-sm text-black/50">
-              <span className="flex items-center gap-1.5">👤 {VEHICLES[selectedCar ?? 0].passengers} passengers</span>
-              <span className="flex items-center gap-1.5">🧳 {VEHICLES[selectedCar ?? 0].bags} bags</span>
-            </div>
-          </div>
-
-          {/* Dot indicators */}
-          <div className="flex items-center justify-center gap-3">
-            {VEHICLES.map((v, idx) => (
-              <button
-                key={v.name}
-                onClick={() => setSelectedCar(idx)}
-                className={`transition-all duration-300 rounded-full ${
-                  (selectedCar ?? 0) === idx 
-                    ? 'w-8 h-2' 
-                    : 'w-2 h-2 hover:bg-black/30'
-                }`}
-                style={{ background: (selectedCar ?? 0) === idx ? '#1a1a2e' : 'rgba(0,0,0,0.15)' }}
-              />
+        <div className="relative">
+          <div className="flex gap-4 md:gap-6 fleet-scroll" style={{ width: 'max-content', animation: 'fleetScroll 20s linear infinite' }}>
+            {[...Array(3)].map((_, setIdx) => (
+              <div key={setIdx} className="flex gap-4 md:gap-6 pl-4 md:pl-6">
+                {VEHICLES.map(v => (
+                  <div key={`${setIdx}-${v.name}`} className="w-[300px] md:w-[380px] flex-shrink-0 rounded-2xl overflow-hidden border border-black/5 bg-white">
+                    <div className="aspect-[16/10] relative overflow-hidden">
+                      <img src={v.image} alt={v.name} className="w-full h-full object-cover" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                        <p className="text-white text-sm font-semibold">{v.name}</p>
+                        <p className="text-white text-xs bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                          👤 {v.passengers} &nbsp; 🧳 {v.bags}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="p-5">
+                      <p className="text-sm text-black/60 leading-relaxed">{v.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             ))}
           </div>
+        </div>
 
-          <div className="mt-10 text-center">
-            <p className="text-sm text-black/50">
-              We accept <span className="font-medium text-black/70">Visa, Mastercard, American Express, Apple Pay</span> and more.
-            </p>
-          </div>
+        <div className="mt-12 text-center px-6">
+          <p className="text-sm text-black/50">
+            We accept <span className="font-medium text-black/70">Visa, Mastercard, American Express, Apple Pay</span> and more.
+          </p>
         </div>
       </section>
 
