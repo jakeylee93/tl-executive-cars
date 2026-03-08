@@ -32,7 +32,7 @@ html { scroll-behavior: smooth; }
 }
 
 .client-marquee {
-  animation: clientMarquee 18s linear infinite;
+  animation: clientMarquee 10s linear infinite;
   will-change: transform;
 }
 
