@@ -330,11 +330,7 @@ export default function Home() {
                     key={`${setIdx}-${c.name}`} 
                     className="flex-shrink-0 flex items-center justify-center h-14"
                   >
-                    {c.text ? (
-                      <span className="text-sm font-bold tracking-[0.2em] text-black/70 whitespace-nowrap">{c.text}</span>
-                    ) : (
-                      <img src={c.src} alt={c.name} className="h-10 md:h-14 w-auto max-w-[180px] object-contain" loading="eager" />
-                    )}
+                    <img src={c.src} alt={c.name} className="h-10 md:h-14 w-auto max-w-[180px] object-contain" loading="eager" />
                   </div>
                 ))}
               </div>
