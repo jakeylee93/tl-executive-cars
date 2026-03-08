@@ -277,23 +277,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-12 text-center px-6">
-          <p className="text-sm text-black/40 mb-5">We accept</p>
-          <div className="flex items-center justify-center gap-6 flex-wrap">
-            {[
-              { name: 'Visa', card: <svg viewBox="0 0 48 32" className="h-9 w-auto"><rect width="48" height="32" rx="4" fill="#1a1f71"/><path d="M19.5 21h-3l1.9-10h3l-1.9 10zm12.4-9.7c-.6-.2-1.5-.5-2.7-.5-3 0-5.1 1.5-5.1 3.7 0 1.6 1.5 2.5 2.6 3.1 1.2.6 1.5.9 1.5 1.4 0 .8-.9 1.1-1.8 1.1-1.2 0-1.8-.2-2.8-.6l-.4-.2-.4 2.5c.7.3 2 .6 3.3.6 3.2 0 5.2-1.5 5.2-3.8 0-1.3-.8-2.2-2.5-3-1-.5-1.7-.9-1.7-1.4 0-.5.5-1 1.7-1 1 0 1.7.2 2.2.4l.3.1.4-2.4zm7.9-.3h-2.3c-.7 0-1.3.2-1.6.9l-4.4 10.1h3.2s.5-1.4.6-1.7h3.8c.1.4.4 1.7.4 1.7h2.8l-2.5-11zm-3.7 7.1c.2-.6 1.2-3.1 1.2-3.1s.2-.7.4-1.1l.2 1s.6 2.7.7 3.2h-2.5zM17.2 11l-2.8 6.8-.3-1.5c-.5-1.7-2.1-3.6-3.9-4.5l2.7 9.2h3.2l4.8-10h-3.7z" fill="#fff"/><path d="M12.1 11H7.1l-.1.3c3.8.9 6.3 3.2 7.3 5.9l-1.1-5.3c-.2-.7-.7-.9-1.1-.9z" fill="#f9a51a"/></svg> },
-              { name: 'Mastercard', card: <svg viewBox="0 0 48 32" className="h-9 w-auto"><rect width="48" height="32" rx="4" fill="#252525"/><circle cx="19" cy="16" r="9" fill="#eb001b"/><circle cx="29" cy="16" r="9" fill="#f79e1b"/><path d="M24 9.3a9 9 0 0 0-3.4 6.7 9 9 0 0 0 3.4 6.7 9 9 0 0 0 3.4-6.7 9 9 0 0 0-3.4-6.7z" fill="#ff5f00"/></svg> },
-              { name: 'Amex', card: <svg viewBox="0 0 48 32" className="h-9 w-auto"><rect width="48" height="32" rx="4" fill="#016fd0"/><text x="24" y="18" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="bold" fontFamily="Arial,sans-serif">AMEX</text></svg> },
-              { name: 'Apple Pay', card: <svg viewBox="0 0 48 32" className="h-9 w-auto"><rect width="48" height="32" rx="4" fill="#000"/><path d="M15.2 11.8c-.4.5-1 .9-1.6.8-.1-.6.2-1.3.5-1.7.4-.5 1-.8 1.5-.8.1.6-.2 1.2-.4 1.7zm.4.9c-.9 0-1.6.5-2 .5s-1-.5-1.7-.5c-.9 0-1.7.5-2.1 1.2-.9 1.5-.2 3.8.6 5.1.4.6.9 1.3 1.6 1.3.6 0 .9-.4 1.6-.4.7 0 .9.4 1.6.4s1.1-.7 1.5-1.3c.5-.7.7-1.4.7-1.4-.8-.3-1-1.1-1-2.1 0-.8.4-1.5.9-1.9-.5-.7-1.3-1-2.1-.9h-.1zm7.1-.7v7.9h1.2v-2.7h1.7c1.5 0 2.6-1 2.6-2.6s-1-2.6-2.5-2.6h-3zm1.2 1h1.4c1 0 1.6.6 1.6 1.5 0 1-.6 1.6-1.6 1.6h-1.4V13zm6.6 7c.8 0 1.5-.4 1.8-1h0v.9h1.1v-3.9c0-1.1-.9-1.9-2.3-1.9-1.2 0-2.2.7-2.2 1.8h1.1c.1-.6.6-.9 1.1-.9.7 0 1.2.4 1.2 1v.4l-1.5.1c-1.4.1-2.2.7-2.2 1.7 0 1.1.8 1.8 1.9 1.8zm.3-.9c-.6 0-1-.3-1-1 0-.5.4-.9 1.2-1l1.4-.1v.5c0 .9-.7 1.6-1.6 1.6zm4.1 2.8c1.1 0 1.7-.4 2.1-1.6l2-5.6h-1.2l-1.3 4.3h0l-1.3-4.3h-1.3l1.9 5.3-.1.3c-.2.5-.4.7-.9.7h-.4v.9h.5z" fill="#fff"/></svg> },
-              { name: 'Cash', card: <svg viewBox="0 0 48 32" className="h-9 w-auto"><rect width="48" height="32" rx="4" fill="#2d8a4e"/><text x="24" y="18.5" textAnchor="middle" fill="#fff" fontSize="9" fontWeight="bold" fontFamily="Arial,sans-serif">£</text></svg> },
-            ].map(p => (
-              <div key={p.name} className="flex flex-col items-center gap-1.5">
-                <p className="text-[10px] text-black/40 font-medium">{p.name}</p>
-                {p.card}
-              </div>
-            ))}
-          </div>
-        </div>
+
       </section>
 
       {/* Clients — Scrolling logos */}
@@ -328,9 +312,9 @@ export default function Home() {
                 ].map(c => (
                   <div 
                     key={`${setIdx}-${c.name}`} 
-                    className="flex-shrink-0 flex items-center justify-center h-14"
+                    className="flex-shrink-0 flex items-center justify-center h-24"
                   >
-                    <img src={c.src} alt={c.name} className="h-10 md:h-14 w-auto max-w-[180px] object-contain" loading="eager" />
+                    <img src={c.src} alt={c.name} className="h-16 md:h-24 w-auto max-w-[280px] object-contain" loading="eager" />
                   </div>
                 ))}
               </div>
@@ -490,6 +474,17 @@ export default function Home() {
                 Theydon & Loughton Executive Cars
               </h4>
               <p className="text-[10px] uppercase tracking-[0.4em] text-white/30">Theydon Bois &middot; Est. 2008</p>
+              <div className="flex items-center justify-center gap-4 mt-5">
+                {[
+                  { name: 'Visa', card: <svg viewBox="0 0 48 32" className="h-7 w-auto"><rect width="48" height="32" rx="4" fill="#1a1f71"/><path d="M19.5 21h-3l1.9-10h3l-1.9 10zm12.4-9.7c-.6-.2-1.5-.5-2.7-.5-3 0-5.1 1.5-5.1 3.7 0 1.6 1.5 2.5 2.6 3.1 1.2.6 1.5.9 1.5 1.4 0 .8-.9 1.1-1.8 1.1-1.2 0-1.8-.2-2.8-.6l-.4-.2-.4 2.5c.7.3 2 .6 3.3.6 3.2 0 5.2-1.5 5.2-3.8 0-1.3-.8-2.2-2.5-3-1-.5-1.7-.9-1.7-1.4 0-.5.5-1 1.7-1 1 0 1.7.2 2.2.4l.3.1.4-2.4zm7.9-.3h-2.3c-.7 0-1.3.2-1.6.9l-4.4 10.1h3.2s.5-1.4.6-1.7h3.8c.1.4.4 1.7.4 1.7h2.8l-2.5-11zm-3.7 7.1c.2-.6 1.2-3.1 1.2-3.1s.2-.7.4-1.1l.2 1s.6 2.7.7 3.2h-2.5zM17.2 11l-2.8 6.8-.3-1.5c-.5-1.7-2.1-3.6-3.9-4.5l2.7 9.2h3.2l4.8-10h-3.7z" fill="#fff"/><path d="M12.1 11H7.1l-.1.3c3.8.9 6.3 3.2 7.3 5.9l-1.1-5.3c-.2-.7-.7-.9-1.1-.9z" fill="#f9a51a"/></svg> },
+                  { name: 'Mastercard', card: <svg viewBox="0 0 48 32" className="h-7 w-auto"><rect width="48" height="32" rx="4" fill="#252525"/><circle cx="19" cy="16" r="9" fill="#eb001b"/><circle cx="29" cy="16" r="9" fill="#f79e1b"/><path d="M24 9.3a9 9 0 0 0-3.4 6.7 9 9 0 0 0 3.4 6.7 9 9 0 0 0 3.4-6.7 9 9 0 0 0-3.4-6.7z" fill="#ff5f00"/></svg> },
+                  { name: 'Amex', card: <svg viewBox="0 0 48 32" className="h-7 w-auto"><rect width="48" height="32" rx="4" fill="#016fd0"/><text x="24" y="18" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="bold" fontFamily="Arial,sans-serif">AMEX</text></svg> },
+                  { name: 'Apple Pay', card: <svg viewBox="0 0 48 32" className="h-7 w-auto"><rect width="48" height="32" rx="4" fill="#000"/><path d="M15.2 11.8c-.4.5-1 .9-1.6.8-.1-.6.2-1.3.5-1.7.4-.5 1-.8 1.5-.8.1.6-.2 1.2-.4 1.7zm.4.9c-.9 0-1.6.5-2 .5s-1-.5-1.7-.5c-.9 0-1.7.5-2.1 1.2-.9 1.5-.2 3.8.6 5.1.4.6.9 1.3 1.6 1.3.6 0 .9-.4 1.6-.4.7 0 .9.4 1.6.4s1.1-.7 1.5-1.3c.5-.7.7-1.4.7-1.4-.8-.3-1-1.1-1-2.1 0-.8.4-1.5.9-1.9-.5-.7-1.3-1-2.1-.9h-.1zm7.1-.7v7.9h1.2v-2.7h1.7c1.5 0 2.6-1 2.6-2.6s-1-2.6-2.5-2.6h-3zm1.2 1h1.4c1 0 1.6.6 1.6 1.5 0 1-.6 1.6-1.6 1.6h-1.4V13zm6.6 7c.8 0 1.5-.4 1.8-1h0v.9h1.1v-3.9c0-1.1-.9-1.9-2.3-1.9-1.2 0-2.2.7-2.2 1.8h1.1c.1-.6.6-.9 1.1-.9.7 0 1.2.4 1.2 1v.4l-1.5.1c-1.4.1-2.2.7-2.2 1.7 0 1.1.8 1.8 1.9 1.8zm.3-.9c-.6 0-1-.3-1-1 0-.5.4-.9 1.2-1l1.4-.1v.5c0 .9-.7 1.6-1.6 1.6zm4.1 2.8c1.1 0 1.7-.4 2.1-1.6l2-5.6h-1.2l-1.3 4.3h0l-1.3-4.3h-1.3l1.9 5.3-.1.3c-.2.5-.4.7-.9.7h-.4v.9h.5z" fill="#fff"/></svg> },
+                  { name: 'Cash', card: <svg viewBox="0 0 48 32" className="h-7 w-auto"><rect width="48" height="32" rx="4" fill="#2d8a4e"/><text x="24" y="18.5" textAnchor="middle" fill="#fff" fontSize="9" fontWeight="bold" fontFamily="Arial,sans-serif">£</text></svg> },
+                ].map(p => (
+                  <div key={p.name}>{p.card}</div>
+                ))}
+              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-12 mb-16">
