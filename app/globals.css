@@ -26,11 +26,16 @@ html { scroll-behavior: smooth; }
   animation-play-state: paused;
 }
 
-@keyframes clientScroll {
+@keyframes clientMarquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-33.33%); }
+  100% { transform: translateX(-25%); }
 }
 
-.client-scroll:hover {
+.client-marquee {
+  animation: clientMarquee 18s linear infinite;
+  will-change: transform;
+}
+
+.client-marquee:hover {
   animation-play-state: paused;
 }

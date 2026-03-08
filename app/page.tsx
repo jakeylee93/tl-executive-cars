@@ -284,7 +284,7 @@ export default function Home() {
       </section>
 
       {/* Clients — Scrolling logos */}
-      <section className="py-16 md:py-20 border-t border-black/5 overflow-hidden">
+      <section className="py-16 md:py-20 border-t border-black/5 overflow-hidden bg-white">
         <div className="px-6 mb-10">
           <div className="max-w-5xl mx-auto text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-3">Trusted By</p>
@@ -297,10 +297,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="flex items-center gap-12 md:gap-16 client-scroll" style={{ width: 'max-content', animation: 'clientScroll 15s linear infinite' }}>
-            {[...Array(3)].map((_, setIdx) => (
-              <div key={setIdx} className="flex items-center gap-12 md:gap-16 px-8">
+        <div className="relative bg-white">
+          <div className="flex items-center client-marquee">
+            {[...Array(4)].map((_, setIdx) => (
+              <div key={setIdx} className="flex items-center gap-14 md:gap-20 px-10 flex-shrink-0" aria-hidden={setIdx > 0}>
                 {[
                   { name: 'London Speaker Bureau', src: '/clients/lsb.png' },
                   { name: 'Speakers Corner', src: '/clients/speakerscorner.jpg' },
@@ -314,12 +314,12 @@ export default function Home() {
                 ].map(c => (
                   <div 
                     key={`${setIdx}-${c.name}`} 
-                    className="flex-shrink-0 flex items-center justify-center h-12"
+                    className="flex-shrink-0 flex items-center justify-center h-14"
                   >
                     {c.text ? (
-                      <span className="text-xs font-semibold tracking-[0.15em] text-black/60 whitespace-nowrap">{c.text}</span>
+                      <span className="text-sm font-bold tracking-[0.2em] text-black/70 whitespace-nowrap">{c.text}</span>
                     ) : (
-                      <img src={c.src} alt={c.name} className="h-10 md:h-12 w-auto max-w-[160px] object-contain" loading="lazy" />
+                      <img src={c.src} alt={c.name} className="h-10 md:h-14 w-auto max-w-[180px] object-contain" loading="eager" />
                     )}
                   </div>
                 ))}
