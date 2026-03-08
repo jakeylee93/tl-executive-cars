@@ -21,9 +21,10 @@ const TESTIMONIALS = [
 ]
 
 const VEHICLES = [
-  { name: 'Executive Saloon', passengers: 4, bags: 3, desc: 'Mercedes E-Class or similar. Perfect for airport transfers and business travel.', image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&h=500&fit=crop' },
-  { name: 'Executive MPV', passengers: 7, bags: 7, desc: 'Mercedes V-Class or similar. Ideal for families and small groups.', image: 'https://images.unsplash.com/photo-1632245889029-e406faaa34cd?w=800&h=500&fit=crop' },
-  { name: 'Executive Minibus', passengers: 8, bags: 8, desc: 'VW Transporter or similar. Perfect for larger groups and events.', image: 'https://images.unsplash.com/photo-1570733577524-3a047079e80d?w=800&h=500&fit=crop' },
+  { name: 'Mercedes E Class', passengers: 4, bags: 3, desc: 'Our executive saloon. Perfect for airport transfers and business travel.', image: '/car-eclass.jpg' },
+  { name: 'Mercedes S Class', passengers: 4, bags: 3, desc: 'The ultimate in luxury. First class comfort for VIP and corporate clients.', image: '/car-sclass.jpg' },
+  { name: 'Mercedes V Class', passengers: 7, bags: 7, desc: 'Spacious and comfortable. Ideal for families and small groups.', image: '/car-vclass.jpg' },
+  { name: 'Tourneo Custom Executive Spec', passengers: 8, bags: 8, desc: 'Our executive minibus. Perfect for larger groups and events.', image: '/car-tourneo.jpg' },
 ]
 
 const AIRPORTS = ['Heathrow', 'Gatwick', 'London City', 'Luton', 'Stansted', 'Southend']
@@ -314,15 +315,16 @@ export default function Home() {
             {[...Array(4)].map((_, setIdx) => (
               <div key={setIdx} className="flex items-center gap-14 md:gap-20 px-10 flex-shrink-0" aria-hidden={setIdx > 0}>
                 {[
-                  { name: 'London Speaker Bureau', src: '/clients/lsb.png' },
+                  { name: 'London Speaker Bureau', src: '/clients/londonspeakerbureau.jpg' },
                   { name: 'Speakers Corner', src: '/clients/speakerscorner.jpg' },
-                  { name: 'Jamil Qureshi', src: '/clients/jamilqureshi.png' },
-                  { name: 'The Jockey Club', src: '/clients/jockeyclub.svg' },
-                  { name: 'Banijay (EndemolShine)', src: '/clients/banijay.svg' },
-                  { name: 'Chapman Freeborn', src: '/clients/chapmanfreeborn.png' },
-                  { name: 'JLA', src: '/clients/jla.webp' },
-                  { name: 'GB Helicopters', src: '/clients/gbhelicopters.svg' },
-                  { name: 'Fresh Partners', text: 'FRESH PARTNERS' },
+                  { name: 'Jamil Qureshi', src: '/clients/jamilqureshi.jpg' },
+                  { name: 'The Jockey Club', src: '/clients/jockeyclub.jpg' },
+                  { name: 'EndemolShine Group', src: '/clients/endemolshine.jpg' },
+                  { name: 'Chapman Freeborn', src: '/clients/chapmanfreeborn.jpg' },
+                  { name: 'JLA', src: '/clients/jla.jpg' },
+                  { name: 'GB Helicopters', src: '/clients/gbhelicopters.jpg' },
+                  { name: 'Fresh Partners', src: '/clients/freshpartners.jpg' },
+                  { name: 'Precision', src: '/clients/precision.jpg' },
                 ].map(c => (
                   <div 
                     key={`${setIdx}-${c.name}`} 
