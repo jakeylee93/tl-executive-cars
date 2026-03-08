@@ -72,7 +72,9 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
         <div className="flex items-center justify-between px-6 py-5 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="T&L Executive Cars" className="w-[78px] h-[78px] object-contain" />
+            <div className="w-[78px] h-[78px] rounded-full bg-[#1a1a2e] overflow-hidden flex items-center justify-center shadow-lg">
+              <img src="/logo.jpg" alt="T&L Executive Cars" className="w-full h-full object-cover" />
+            </div>
             <div>
               <h1 className="text-base font-semibold text-white tracking-wide">Theydon & Loughton Executive Cars</h1>
               <p className="text-[10px] text-white/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
@@ -466,7 +468,9 @@ export default function Home() {
         <div className="px-6 py-20 md:py-24">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <img src="/logo.png" alt="T&L Executive Cars" className="w-24 h-24 object-contain mx-auto mb-4" />
+              <div className="w-24 h-24 rounded-full bg-[#1a1a2e] overflow-hidden mx-auto mb-4 shadow-lg">
+                <img src="/logo.jpg" alt="T&L Executive Cars" className="w-full h-full object-cover" />
+              </div>
               <h4 
                 className="text-3xl md:text-4xl mb-2"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
