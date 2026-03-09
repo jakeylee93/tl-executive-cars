@@ -69,14 +69,14 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm">
-        <div className="flex items-center justify-between px-6 py-5 max-w-7xl mx-auto">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/95 backdrop-blur-md shadow-lg">
+        <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-5 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
-            <div className="w-[78px] h-[78px] rounded-full bg-[#1a1a2e] overflow-hidden flex items-center justify-center shadow-lg">
+            <div className="w-[52px] h-[52px] md:w-[78px] md:h-[78px] rounded-full bg-[#1a1a2e] overflow-hidden flex items-center justify-center shadow-lg flex-shrink-0">
               <img src="/logo.jpg" alt="T&L Executive Cars" className="w-full h-full object-cover" />
             </div>
             <div>
-              <h1 className="text-base font-semibold text-white tracking-wide">Theydon & Loughton Executive Cars</h1>
+              <h1 className="text-sm md:text-base font-semibold text-white tracking-wide">Theydon & Loughton Executive Cars</h1>
               <p className="text-[10px] text-white/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
             </div>
           </a>
