@@ -77,20 +77,20 @@ export default function Home() {
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Nav */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1a2e]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-        <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-5 max-w-7xl mx-auto">
-          <a href="/" className="flex items-center gap-3">
-            <div className="w-[52px] h-[52px] md:w-[78px] md:h-[78px] rounded-full bg-[#1a1a2e] overflow-hidden flex items-center justify-center shadow-lg flex-shrink-0">
+        <div className="flex items-center justify-between px-4 md:px-6 py-4 max-w-7xl mx-auto">
+          <a href="/" className="flex items-center gap-3 flex-1 min-w-0">
+            <div className="w-[44px] h-[44px] md:w-[64px] md:h-[64px] rounded-full bg-[#1a1a2e] overflow-hidden flex items-center justify-center shadow-lg flex-shrink-0">
               <img src="/logo.jpg" alt="T&L Executive Cars" className="w-full h-full object-cover" />
             </div>
-            <div>
-              <h1 className="text-sm md:text-base font-semibold text-white tracking-wide">Theydon & Loughton Executive Cars</h1>
-              <p className="text-[10px] text-white/40 uppercase tracking-wider">Theydon Bois &middot; Est. 2008</p>
+            <div className="min-w-0">
+              <h1 className="text-[13px] md:text-base font-semibold text-white tracking-wide leading-tight">Theydon & Loughton<span className="hidden sm:inline"> Executive Cars</span><span className="sm:hidden"> Executive Cars</span></h1>
+              <p className="text-[9px] md:text-[10px] text-white/40 uppercase tracking-wider mt-0.5">Theydon Bois &middot; Est. 2008</p>
             </div>
           </a>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 md:gap-6 flex-shrink-0 ml-3">
             <a href="#fleet" className="text-sm text-white/60 hover:text-white transition hidden md:block">Our Fleet</a>
             <a href="#testimonials" className="text-sm text-white/60 hover:text-white transition hidden md:block">Reviews</a>
-            <a href="#quote" className="text-sm bg-white/10 border border-white/20 text-white px-5 py-2 rounded-full hover:bg-white/20 transition whitespace-nowrap">
+            <a href="#quote" className="text-[13px] md:text-sm bg-[#c9a96e] text-[#1a1a2e] font-semibold px-4 md:px-6 py-2.5 rounded-full hover:bg-[#d4b87a] transition whitespace-nowrap shadow-md">
               Get a Quote
             </a>
           </div>
