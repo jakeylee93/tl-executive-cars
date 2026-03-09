@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const TESTIMONIALS = [
   {
@@ -65,11 +65,18 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', pickup: '', destination: '', date: '', passengers: '1', message: '' })
   const [selectedCar, setSelectedCar] = useState<number | null>(null)
   const [activeService, setActiveService] = useState<number | null>(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e]/95 backdrop-blur-md shadow-lg">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1a2e]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-5 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3">
             <div className="w-[52px] h-[52px] md:w-[78px] md:h-[78px] rounded-full bg-[#1a1a2e] overflow-hidden flex items-center justify-center shadow-lg flex-shrink-0">
