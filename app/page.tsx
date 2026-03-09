@@ -433,7 +433,7 @@ export default function Home() {
                 className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
                 value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
             </div>
-            <input type="tel" placeholder="Phone Number"
+            <input type="tel" placeholder="Phone Number" required
               className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
               value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
             <input type="text" placeholder="Date of Travel" required
@@ -458,7 +458,7 @@ export default function Home() {
                 <option key={n} value={n}>{n} Passenger{n > 1 ? 's' : ''}</option>
               ))}
             </select>
-            <textarea placeholder="Any additional details..."
+            <textarea placeholder="Any additional details..." required
               className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition h-24 resize-none"
               value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} />
             <button type="submit"
