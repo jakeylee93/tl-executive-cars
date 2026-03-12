@@ -269,11 +269,16 @@ export default function Home() {
                     <div className="aspect-[16/10] relative overflow-hidden">
                       <img src={v.image} alt={v.name} className="w-full h-full object-cover" loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                        <p className="text-white text-sm font-semibold">{v.name}</p>
-                        <p className="text-white text-xs bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
-                          👤 {v.passengers} &nbsp; 🧳 {v.bags}
-                        </p>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <p className="text-white text-sm font-semibold mb-2">{v.name}</p>
+                        <div className="flex gap-2">
+                          <span className="flex items-center gap-1.5 bg-white/95 text-[#1a1a2e] text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
+                            👤 {v.passengers} Passengers
+                          </span>
+                          <span className="flex items-center gap-1.5 bg-white/95 text-[#1a1a2e] text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
+                            🧳 {v.bags} Bags
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div className="p-5">
