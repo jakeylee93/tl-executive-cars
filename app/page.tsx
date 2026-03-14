@@ -84,12 +84,12 @@ export default function Home() {
             </div>
             <div className="min-w-0">
               <h1 className="text-[13px] md:text-base font-semibold text-white tracking-wide leading-tight">Theydon & Loughton<span className="hidden sm:inline"> Executive Cars</span><span className="sm:hidden"> Executive Cars</span></h1>
-              <p className="text-[9px] md:text-[10px] text-white/40 uppercase tracking-wider mt-0.5">Theydon Bois &middot; Est. 2008</p>
+              <p className="text-[9px] md:text-[10px] text-white/70 uppercase tracking-wider mt-0.5">Theydon Bois &middot; Est. 2008</p>
             </div>
           </a>
           <div className="flex items-center gap-4 md:gap-6 flex-shrink-0 ml-3">
-            <a href="#fleet" className="text-sm text-white/60 hover:text-white transition hidden md:block">Our Fleet</a>
-            <a href="#testimonials" className="text-sm text-white/60 hover:text-white transition hidden md:block">Reviews</a>
+            <a href="#fleet" className="text-sm text-white/80 hover:text-white transition hidden md:block">Our Fleet</a>
+            <a href="#testimonials" className="text-sm text-white/80 hover:text-white transition hidden md:block">Reviews</a>
             <a href="#quote" className="text-[13px] md:text-sm bg-[#c9a96e] text-[#1a1a2e] font-semibold px-4 md:px-6 py-2.5 rounded-full hover:bg-[#d4b87a] transition whitespace-nowrap shadow-md">
               Get a Quote
             </a>
@@ -102,7 +102,7 @@ export default function Home() {
         <div className="relative min-h-[50vh] flex items-center" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
           <div className="max-w-7xl mx-auto px-6 pt-36 pb-20 md:pt-40 md:pb-24 w-full">
             <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6 -mt-2.5">Theydon Bois &middot; Essex &middot; London</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-white/70 mb-6 -mt-2.5">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
                 className="text-[clamp(2rem,5.5vw,6rem)] text-white leading-[1.1] mb-8 whitespace-nowrap"
                 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
@@ -137,7 +137,7 @@ export default function Home() {
                         onClick={() => setActiveService(j.serviceIdx!)}
                         className="text-xs text-white/50 whitespace-nowrap flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 hover:border-white/30 hover:text-white/80 hover:bg-white/5 transition cursor-pointer"
                       >
-                        <span className="text-white/30">{j.icon}</span>
+                        <span className="text-white/30" aria-hidden="true">{j.icon}</span>
                         {j.label}
                       </button>
                     ))}
@@ -394,7 +394,7 @@ export default function Home() {
       {/* About / Simon */}
       <section className="py-20 md:py-28 px-6 border-t border-black/5" style={{ background: 'linear-gradient(135deg, #1a1a2e, #16213e)' }}>
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6">About Us</p>
+          <p className="text-xs uppercase tracking-[0.4em] text-white/70 mb-6">About Us</p>
           <h3 
             className="text-3xl md:text-4xl text-white mb-8"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
@@ -450,31 +450,31 @@ export default function Home() {
 
           <form className="space-y-4" onSubmit={e => { e.preventDefault(); alert('Quote request sent! Simon will be in touch shortly.') }}>
             <div className="grid md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Your Name" required
+              <input type="text" placeholder="Your Name" aria-label="Your name" required
                 className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
                 value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-              <input type="email" placeholder="Email Address" required
+              <input type="email" placeholder="Email Address" aria-label="Email address" required
                 className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
                 value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
             </div>
-            <input type="tel" placeholder="Phone Number" required
+            <input type="tel" placeholder="Phone Number" aria-label="Phone number" required
               className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
               value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
-            <input type="text" placeholder="Date of Travel" required
+            <input type="text" placeholder="Date of Travel" aria-label="Date of travel" required
               onFocus={e => { e.target.type = 'date' }}
               onBlur={e => { if (!e.target.value) e.target.type = 'text' }}
               className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition bg-white placeholder:text-black/40"
               style={{ fontFamily: "'Inter', sans-serif" }}
               value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
             <div className="grid md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Pick-up Location" required
+              <input type="text" placeholder="Pick-up Location" aria-label="Pick-up location" required
                 className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
                 value={formData.pickup} onChange={e => setFormData({...formData, pickup: e.target.value})} />
-              <input type="text" placeholder="Destination" required
+              <input type="text" placeholder="Destination" aria-label="Destination" required
                 className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
                 value={formData.destination} onChange={e => setFormData({...formData, destination: e.target.value})} />
             </div>
-            <select 
+            <select aria-label="Number of passengers"
               className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition text-black/60 bg-white"
               style={{ fontFamily: "'Inter', sans-serif" }}
               value={formData.passengers} onChange={e => setFormData({...formData, passengers: e.target.value})}>
@@ -482,7 +482,7 @@ export default function Home() {
                 <option key={n} value={n}>{n} Passenger{n > 1 ? 's' : ''}</option>
               ))}
             </select>
-            <textarea placeholder="Any additional details..." required
+            <textarea placeholder="Any additional details..." aria-label="Additional details" required
               className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition h-24 resize-none"
               value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} />
             <button type="submit"
@@ -508,7 +508,7 @@ export default function Home() {
               >
                 Theydon & Loughton Executive Cars
               </h4>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-white/30">Theydon Bois &middot; Est. 2008</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-white/70">Theydon Bois &middot; Est. 2008</p>
               <div className="flex items-center justify-center gap-4 mt-5">
                 {[
                   { name: 'Visa', card: <svg viewBox="0 0 48 32" className="h-7 w-auto"><rect width="48" height="32" rx="4" fill="#1a1f71"/><path d="M19.5 21h-3l1.9-10h3l-1.9 10zm12.4-9.7c-.6-.2-1.5-.5-2.7-.5-3 0-5.1 1.5-5.1 3.7 0 1.6 1.5 2.5 2.6 3.1 1.2.6 1.5.9 1.5 1.4 0 .8-.9 1.1-1.8 1.1-1.2 0-1.8-.2-2.8-.6l-.4-.2-.4 2.5c.7.3 2 .6 3.3.6 3.2 0 5.2-1.5 5.2-3.8 0-1.3-.8-2.2-2.5-3-1-.5-1.7-.9-1.7-1.4 0-.5.5-1 1.7-1 1 0 1.7.2 2.2.4l.3.1.4-2.4zm7.9-.3h-2.3c-.7 0-1.3.2-1.6.9l-4.4 10.1h3.2s.5-1.4.6-1.7h3.8c.1.4.4 1.7.4 1.7h2.8l-2.5-11zm-3.7 7.1c.2-.6 1.2-3.1 1.2-3.1s.2-.7.4-1.1l.2 1s.6 2.7.7 3.2h-2.5zM17.2 11l-2.8 6.8-.3-1.5c-.5-1.7-2.1-3.6-3.9-4.5l2.7 9.2h3.2l4.8-10h-3.7z" fill="#fff"/><path d="M12.1 11H7.1l-.1.3c3.8.9 6.3 3.2 7.3 5.9l-1.1-5.3c-.2-.7-.7-.9-1.1-.9z" fill="#f9a51a"/></svg> },
