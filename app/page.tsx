@@ -97,10 +97,21 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero */}
+      {/* Hero — Video Background */}
       <section className="pt-0 pb-0">
-        <div className="relative min-h-[50vh] flex items-center" style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }}>
-          <div className="max-w-7xl mx-auto px-6 pt-36 pb-20 md:pt-40 md:pb-24 w-full">
+        <div className="relative min-h-screen flex items-center overflow-hidden">
+          {/* Video background */}
+          <video
+            autoPlay muted loop playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/car-eclass.jpg"
+          >
+            <source src="https://assets.mixkit.co/videos/4064/4064-720.mp4" type="video/mp4" />
+          </video>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a2e]/80 via-[#1a1a2e]/60 to-[#1a1a2e]/90" />
+          
+          <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-32 md:pt-40 md:pb-36 w-full">
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-6 -mt-2.5">Theydon Bois &middot; Essex &middot; London</p>
               <h2 
@@ -145,6 +156,26 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Bar — Real Numbers */}
+      <section className="py-0" style={{ background: '#c9a96e' }}>
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { num: '17+', label: 'Years of Service', sub: 'Est. 2008' },
+              { num: '15,000+', label: 'Journeys Completed', sub: 'And counting' },
+              { num: '100%', label: 'Reliability Rate', sub: 'Never late' },
+              { num: '5★', label: 'Client Rating', sub: 'Trusted by the best' },
+            ].map(s => (
+              <div key={s.label}>
+                <div className="text-2xl md:text-3xl font-bold" style={{ fontFamily: "'Cormorant Garamond', serif", color: '#1a1a2e' }}>{s.num}</div>
+                <div className="text-sm font-medium" style={{ color: '#1a1a2e' }}>{s.label}</div>
+                <div className="text-xs mt-0.5" style={{ color: 'rgba(26,26,46,0.5)' }}>{s.sub}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
