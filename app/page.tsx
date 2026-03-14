@@ -62,7 +62,8 @@ const SERVICES = [
 ]
 
 export default function Home() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', pickup: '', destination: '', date: '', passengers: '1', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', pickup: '', destination: '', date: '', returnDate: '', passengers: '1', bags: '1', vehicle: '', message: '' })
+  const [tripType, setTripType] = useState<'one-way' | 'return'>('one-way')
   const [selectedCar, setSelectedCar] = useState<number | null>(null)
   const [activeService, setActiveService] = useState<number | null>(null)
   const [scrolled, setScrolled] = useState(false)
@@ -433,63 +434,161 @@ export default function Home() {
       </section>
 
       {/* Quote Form */}
-      <section id="quote" className="py-20 md:py-28 px-6 bg-gradient-to-b from-gray-50 to-white border-t border-black/5">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
+      <section id="quote" className="py-20 md:py-28 px-6 border-t border-black/5" style={{ background: 'linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%)' }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
             <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-3">Get in Touch</p>
-            <h3 
-              className="text-3xl md:text-4xl text-black mb-4"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            >
+            <h3 className="text-3xl md:text-4xl text-black mb-3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
               Request a Quote
             </h3>
-            <p className="text-sm text-black/50">
-              Tell us about your journey and we&apos;ll provide a prompt and competitive rate.
-            </p>
+            <p className="text-sm text-black/50">Tell us about your journey and we&apos;ll get back to you promptly.</p>
           </div>
 
-          <form className="space-y-4" onSubmit={e => { e.preventDefault(); alert('Quote request sent! Simon will be in touch shortly.') }}>
-            <div className="grid md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Your Name" aria-label="Your name" required
-                className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
-                value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-              <input type="email" placeholder="Email Address" aria-label="Email address" required
-                className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
-                value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+          <form className="space-y-6" onSubmit={e => { e.preventDefault(); alert('Quote request sent! Simon will be in touch shortly.') }}>
+            
+            {/* Trip Type Toggle */}
+            <div className="flex justify-center">
+              <div className="inline-flex rounded-full p-1 border border-black/10 bg-white">
+                <button type="button" onClick={() => setTripType('one-way')}
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${tripType === 'one-way' ? 'bg-[#1a1a2e] text-white shadow-md' : 'text-black/50 hover:text-black/70'}`}>
+                  One Way
+                </button>
+                <button type="button" onClick={() => setTripType('return')}
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${tripType === 'return' ? 'bg-[#1a1a2e] text-white shadow-md' : 'text-black/50 hover:text-black/70'}`}>
+                  Round Trip
+                </button>
+              </div>
             </div>
-            <input type="tel" placeholder="Phone Number" aria-label="Phone number" required
-              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
-              value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
-            <input type="text" placeholder="Date of Travel" aria-label="Date of travel" required
-              onFocus={e => { e.target.type = 'date' }}
-              onBlur={e => { if (!e.target.value) e.target.type = 'text' }}
-              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition bg-white placeholder:text-black/40"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-              value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
-            <div className="grid md:grid-cols-2 gap-4">
-              <input type="text" placeholder="Pick-up Location" aria-label="Pick-up location" required
-                className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
-                value={formData.pickup} onChange={e => setFormData({...formData, pickup: e.target.value})} />
-              <input type="text" placeholder="Destination" aria-label="Destination" required
-                className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition"
-                value={formData.destination} onChange={e => setFormData({...formData, destination: e.target.value})} />
+
+            {/* Journey Details Card */}
+            <div className="bg-white rounded-2xl border border-black/5 shadow-sm p-5 md:p-6 space-y-4">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-black/30 font-semibold mb-1">Journey Details</p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Pick-up</label>
+                  <input type="text" placeholder="Address, airport, hotel..." aria-label="Pick-up location" required
+                    className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition bg-gray-50/50"
+                    value={formData.pickup} onChange={e => setFormData({...formData, pickup: e.target.value})} />
+                </div>
+                <div>
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Destination</label>
+                  <input type="text" placeholder="Address, airport, hotel..." aria-label="Destination" required
+                    className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition bg-gray-50/50"
+                    value={formData.destination} onChange={e => setFormData({...formData, destination: e.target.value})} />
+                </div>
+              </div>
+              <div className={`grid gap-4 ${tripType === 'return' ? 'md:grid-cols-2' : ''}`}>
+                <div>
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">{tripType === 'return' ? 'Outbound Date' : 'Date of Travel'}</label>
+                  <input type="date" aria-label="Date of travel" required
+                    className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition bg-gray-50/50"
+                    value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />
+                </div>
+                {tripType === 'return' && (
+                  <div>
+                    <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Return Date</label>
+                    <input type="date" aria-label="Return date"
+                      className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition bg-gray-50/50"
+                      value={formData.returnDate} onChange={e => setFormData({...formData, returnDate: e.target.value})} />
+                  </div>
+                )}
+              </div>
             </div>
-            <select aria-label="Number of passengers"
-              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition text-black/60 bg-white"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-              value={formData.passengers} onChange={e => setFormData({...formData, passengers: e.target.value})}>
-              {[1,2,3,4,5,6,7,8].map(n => (
-                <option key={n} value={n}>{n} Passenger{n > 1 ? 's' : ''}</option>
-              ))}
-            </select>
-            <textarea placeholder="Any additional details..." aria-label="Additional details" required
-              className="w-full px-5 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-black/30 transition h-24 resize-none"
-              value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} />
+
+            {/* Passengers & Bags */}
+            <div className="bg-white rounded-2xl border border-black/5 shadow-sm p-5 md:p-6">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-black/30 font-semibold mb-4">Passengers & Luggage</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Passengers</label>
+                  <div className="flex items-center gap-3 bg-gray-50/50 rounded-xl border border-black/10 px-4 py-2.5">
+                    <button type="button" onClick={() => setFormData({...formData, passengers: String(Math.max(1, Number(formData.passengers) - 1))})}
+                      className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-black/50 font-medium transition">−</button>
+                    <span className="text-lg font-semibold text-black flex-1 text-center">{formData.passengers}</span>
+                    <button type="button" onClick={() => setFormData({...formData, passengers: String(Math.min(8, Number(formData.passengers) + 1))})}
+                      className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-black/50 font-medium transition">+</button>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Checked Bags</label>
+                  <div className="flex items-center gap-3 bg-gray-50/50 rounded-xl border border-black/10 px-4 py-2.5">
+                    <button type="button" onClick={() => setFormData({...formData, bags: String(Math.max(0, Number(formData.bags) - 1))})}
+                      className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-black/50 font-medium transition">−</button>
+                    <span className="text-lg font-semibold text-black flex-1 text-center">{formData.bags}</span>
+                    <button type="button" onClick={() => setFormData({...formData, bags: String(Math.min(10, Number(formData.bags) + 1))})}
+                      className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-black/50 font-medium transition">+</button>
+                  </div>
+                </div>
+                <div className="col-span-2 md:col-span-1">
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Hand Luggage</label>
+                  <div className="flex items-center gap-2 bg-gray-50/50 rounded-xl border border-black/10 px-4 py-3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 text-black/30"><rect x="6" y="3" width="12" height="18" rx="2" /><path d="M6 8h12M6 16h12M10 3v2M14 3v2" /></svg>
+                    <span className="text-sm text-black/50">Included with every journey</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Ideal Vehicle — Visual Picker */}
+            <div className="bg-white rounded-2xl border border-black/5 shadow-sm p-5 md:p-6">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-black/30 font-semibold mb-4">Ideal Vehicle</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {VEHICLES.map(v => (
+                  <button type="button" key={v.name} onClick={() => setFormData({...formData, vehicle: v.name})}
+                    className={`rounded-xl border-2 p-3 transition-all text-center group ${formData.vehicle === v.name ? 'border-[#c9a96e] bg-[#c9a96e]/5 shadow-md' : 'border-black/5 hover:border-black/15 bg-gray-50/30'}`}>
+                    <div className="h-16 md:h-20 rounded-lg overflow-hidden mb-2">
+                      <img src={v.image} alt={v.name} className="w-full h-full object-cover" />
+                    </div>
+                    <p className={`text-xs font-semibold mb-0.5 transition-colors ${formData.vehicle === v.name ? 'text-[#1a1a2e]' : 'text-black/70'}`}>{v.name}</p>
+                    <p className="text-[10px] text-black/40">{v.passengers} pax · {v.bags} bags</p>
+                    {formData.vehicle === v.name && (
+                      <div className="mt-1.5">
+                        <span className="inline-block w-5 h-5 rounded-full bg-[#c9a96e] text-white text-[10px] leading-5">✓</span>
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+              <p className="text-[10px] text-black/30 text-center mt-3">Not sure? Leave blank and we&apos;ll recommend the best option for your group.</p>
+            </div>
+
+            {/* Contact Details Card */}
+            <div className="bg-white rounded-2xl border border-black/5 shadow-sm p-5 md:p-6 space-y-4">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-black/30 font-semibold mb-1">Your Details</p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Name</label>
+                  <input type="text" placeholder="Full name" aria-label="Your name" required
+                    className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition bg-gray-50/50"
+                    value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+                </div>
+                <div>
+                  <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Email</label>
+                  <input type="email" placeholder="your@email.com" aria-label="Email address" required
+                    className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition bg-gray-50/50"
+                    value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} />
+                </div>
+              </div>
+              <div>
+                <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Phone</label>
+                <input type="tel" placeholder="07..." aria-label="Phone number" required
+                  className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition bg-gray-50/50"
+                  value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+              </div>
+              <div>
+                <label className="block text-[11px] text-black/40 font-medium mb-1.5 uppercase tracking-wider">Anything else?</label>
+                <textarea placeholder="Flight number, special requests, accessibility needs..." aria-label="Additional details"
+                  className="w-full px-4 py-3 rounded-xl border border-black/10 text-sm focus:outline-none focus:border-[#c9a96e] focus:ring-1 focus:ring-[#c9a96e]/20 transition h-20 resize-none bg-gray-50/50"
+                  value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} />
+              </div>
+            </div>
+
             <button type="submit"
-              className="w-full py-4 rounded-xl text-sm font-semibold text-white transition-all hover:scale-[1.01]"
-              style={{ background: '#1a1a2e' }}>
+              className="w-full py-4 rounded-xl text-sm font-semibold text-white transition-all hover:scale-[1.01] shadow-lg hover:shadow-xl"
+              style={{ background: 'linear-gradient(135deg, #1a1a2e, #2a2a4e)' }}>
               Request Quote
             </button>
+            <p className="text-center text-[10px] text-black/30">We typically respond within 30 minutes during business hours.</p>
           </form>
         </div>
       </section>
