@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Nav */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1a2e]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1a2e]/95 backdrop-blur-md shadow-lg' : 'bg-[#1a1a2e]/70 backdrop-blur-sm'}`}>
         <div className="flex items-center justify-between px-4 md:px-6 py-4 max-w-7xl mx-auto">
           <a href="/" className="flex items-center gap-3 flex-1 min-w-0">
             <div className="w-[44px] h-[44px] md:w-[64px] md:h-[64px] rounded-full bg-[#1a1a2e] overflow-hidden flex items-center justify-center shadow-lg flex-shrink-0">
